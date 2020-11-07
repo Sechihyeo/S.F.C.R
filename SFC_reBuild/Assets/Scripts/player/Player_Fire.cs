@@ -110,6 +110,7 @@ public class Player_Fire : PunBehaviour
             gunbody.transform.localScale += new Vector3(0, 1f);
             gunbody.transform.localEulerAngles += new Vector3(0, 0, 5);
             Instantiate(gunflame).transform.position = flamePosition.position + new Vector3(0, 0, -3);
+             if (pv.isMine)
             Camera.main.GetComponent<ShakeManager>().Shake(0, 0, 0, 0.8f, 8);
             CreateBullet();
 

@@ -29,17 +29,17 @@ MonoBehaviour:
   RunInBackground: 1
   RpcList:
   - Chat
+  - co_Reload
   - DestroyRpc
+  - FireBullet
   - InstantiateRpc
+  - LocalDestroy
   - PickupItemInit
+  - playDie
   - PunPickup
   - PunPickupSimple
   - PunRespawn
   - RequestForPickupItems
   - RequestForPickupTimes
-  - co_Reload
-  - FireBullet
-  - LocalDestroy
-  - playDie
   - setToVector
   DisableAutoOpenWizard: 1
