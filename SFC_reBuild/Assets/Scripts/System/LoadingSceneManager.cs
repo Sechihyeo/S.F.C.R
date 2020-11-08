@@ -13,21 +13,30 @@ public class LoadingSceneManager : MonoBehaviour
 
 
     public Text percent;
-
+    float amount=0;
+    float smooth=0;
     private void Start()
     {
         StartCoroutine(LoadScene());
     }
-
+    void Update()
+    {
+        smooth+=(amount-smooth)/10;
+        progressBar.fillAmount += ((amount/10)-progressBar.fillAmount)/10;
+        if(smooth>10)smooth=10;
+        percent.text=Truncate((smooth*100))/10+"%";
+    }
     string nextSceneName;
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
         SceneManager.LoadScene("Loading");
     }
-
+    
     IEnumerator LoadScene()
     {
+        
+        
         yield return null;
 
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
@@ -35,10 +44,16 @@ public class LoadingSceneManager : MonoBehaviour
 
 
 
+        while(amount<=10)
+        {
+            float temp=Random.Range(0.1f,3f);
+            yield return new WaitForSeconds(0.1f);
+            amount+=temp;
+        }
         float timer = 0.0f;
         while (!op.isDone)
         {
-            yield return null;
+            yield return new WaitForSeconds(Random.Range(0.1f,0.5f));
 
             timer += Time.deltaTime;
 

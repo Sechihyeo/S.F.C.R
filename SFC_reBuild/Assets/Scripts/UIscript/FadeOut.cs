@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-public class Intro_Scence : MonoBehaviour
+
+public class FadeOut : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,9 +13,6 @@ public class Intro_Scence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown)
-        {
-            SceneManager.LoadScene("Main_menu");
-        }
+        
     }
 }
