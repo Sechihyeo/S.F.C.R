@@ -1001,6 +1001,7 @@ MonoBehaviour:
   player_HP: 100
   Max_HP: 100
   pv: {fileID: 0}
+  isDead: 0
 --- !u!1 &6744515523534938803
 GameObject:
   m_ObjectHideFlags: 0
