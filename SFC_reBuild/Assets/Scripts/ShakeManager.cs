@@ -13,6 +13,7 @@ public class ShakeManager : MonoBehaviour
     float camera_size;
     GameObject player;
     public Transform target;
+
     void Awake()
     {
 
@@ -38,7 +39,7 @@ public class ShakeManager : MonoBehaviour
         transform.position = target.transform.position - new Vector3(0, 0, 10);
     }
     public void Shake(float x = 0, float y = 0, float dire = 0, float size = 1.5f, float length = 10)
-    {
+    { 
         if(x!=0)
         shake_x = x;
         if(y!=0)

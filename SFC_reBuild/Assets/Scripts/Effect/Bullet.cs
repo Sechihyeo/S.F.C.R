@@ -58,6 +58,7 @@ public class Bullet : PunBehaviour
     }
     public void Destroy_particle()
     {   
+        if(PoolingManager.Instance.TruePlayer.pv.viewID==fireID)
         Camera.main.GetComponent<ShakeManager>().Shake(0,0,0,1.1f,5);
         GameObject tempOb = PoolingManager.Instance.ObjectResume();
         tempOb.GetComponent<GunOrbit>().Init(false,transform.position-new Vector3(0,0,1),new Vector3(OrbitSize*4,OrbitSize*4));
