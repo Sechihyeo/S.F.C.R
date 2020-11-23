@@ -27,6 +27,7 @@ public class Player_Fire : PunBehaviour
     [HideInInspector]
     public PhotonView pv;
     public GameObject gunbody;
+
     protected void Start()
     {
         Fireaudio = gameObject.AddComponent<AudioSource>();
@@ -149,8 +150,8 @@ public class Player_Fire : PunBehaviour
             tempObshadow.GetComponent<GunOrbit>().sizeReduction = 0.0075f;
             tempObshadow.GetComponent<GunOrbit>().targetFigure = 0.3f;
 
-            yield return new WaitForSeconds(0.1f);
-        }
+            yield return new WaitForSeconds(0.05f);
+        } 
         nowReload = false;
         Cur_magazine = Max_magazine;
     }
