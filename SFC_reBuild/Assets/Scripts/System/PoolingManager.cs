@@ -18,6 +18,7 @@ public class PoolingManager : MonoBehaviour
     public Text Player_magazine;
     public Hp_bar hpbar;
     [SerializeField] public Image Curser;
+    public bool isOPner=false;
     void Awake()
     {
         if (Instance == null)

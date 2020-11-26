@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Anima2D.Bone2D
     - Anima2D.EditorUpdaterProxy
     - Bullet
+    - GameManager
     - GunFlame
     - GunOrbit
     - Hp_bar
@@ -100,11 +101,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14280}
     - Class: 114
+      Script: {instanceID: 14630}
+    - Class: 114
       Script: {instanceID: 14648}
     - Class: 114
       Script: {instanceID: 14776}
     - Class: 114
       Script: {instanceID: 14846}
+    - Class: 114
+      Script: {instanceID: 17372}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1165,7 +1170,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 273867e3bc290544a06ee00e220586dc
+      Hash: 3afe99ff9ef6e13cb1afd8ee87563050
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PoolingManager
@@ -1187,6 +1192,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: b3398c6b5e476e73c51d4e826b47dd5a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
   platform: 5
   scenePathNames:
   - Assets/Scene/Intro.unity

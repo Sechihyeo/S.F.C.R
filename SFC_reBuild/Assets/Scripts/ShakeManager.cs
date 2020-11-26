@@ -27,7 +27,7 @@ public class ShakeManager : MonoBehaviour
         camera_main = Camera.main;
         camera_size = camera_main.orthographicSize;
       
-        Shake(0, 0, 0, 1.5f, 15);
+        Shake(0, 0, 0, 2.0f, 30);
     }
     void Update()
     {

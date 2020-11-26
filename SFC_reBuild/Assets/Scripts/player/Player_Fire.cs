@@ -124,6 +124,7 @@ public class Player_Fire : PunBehaviour
     [PunRPC]
     void co_Reload()
     {
+        if(!nowReload)
         StartCoroutine(Reload());
     }
     IEnumerator Reload()
@@ -132,7 +133,7 @@ public class Player_Fire : PunBehaviour
         nowReload = true;
         ReloadAudio.Play();
         PoolingManager.Instance.Curser.fillAmount = 0;
-        while (tempreloadTime - 0.1f > 0.0f)
+        while (tempreloadTime-0.1f > 0.0f)
         {
             tempreloadTime -= 0.1f;
             GameObject tempOb = PoolingManager.Instance.ObjectResume();

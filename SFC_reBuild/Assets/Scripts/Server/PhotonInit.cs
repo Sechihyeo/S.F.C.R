@@ -17,7 +17,12 @@ public class PhotonInit : Photon.PunBehaviour
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
     {
         Debug.Log("NO Room");
-        PhotonNetwork.CreateRoom(null);
+        RoomOptions roomOptions = new RoomOptions ();
+		roomOptions.IsVisible=true;
+        roomOptions.MaxPlayers=2;
+        roomOptions.CustomRoomProperties=new ExitGames.Client.Photon.Hashtable(){{"val",0}};
+        PhotonNetwork.CreateRoom(Random.Range(0,199).ToString(),roomOptions,null);
+        GameManager.Instance.startCu();
     }
     public override void OnCreatedRoom()
     {
