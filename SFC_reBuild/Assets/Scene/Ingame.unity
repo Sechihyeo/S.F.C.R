@@ -1337,7 +1337,7 @@ PrefabInstance:
     - target: {fileID: 5898533804851967133, guid: df92e615374e27a41918e5853a0c8697,
         type: 3}
       propertyPath: m_Name
-      value: TestPhotonMgr
+      value: PhotonMgr
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df92e615374e27a41918e5853a0c8697, type: 3}

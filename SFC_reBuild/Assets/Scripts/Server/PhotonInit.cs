@@ -11,19 +11,20 @@ public class PhotonInit : Photon.PunBehaviour
     public override void OnJoinedLobby()
     {
         Debug.Log("Joinnerd Lobby");
-        
+
         PhotonNetwork.JoinRandomRoom();
     }
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
     {
         Debug.Log("NO Room");
-        RoomOptions roomOptions = new RoomOptions ();
-		roomOptions.IsVisible=true;
-        roomOptions.MaxPlayers=2;
-        roomOptions.CustomRoomProperties=new ExitGames.Client.Photon.Hashtable(){{"val",0}};
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.IsVisible = true;
+        roomOptions.MaxPlayers = 2;
+        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "val", 0 } };
         PhotonNetwork.CreateRoom(Random.Range(0,199).ToString(),roomOptions,null);
         GameManager.Instance.startCu();
     }
+
     public override void OnCreatedRoom()
     {
         Debug.Log("Finish make a room");
@@ -40,16 +41,16 @@ public class PhotonInit : Photon.PunBehaviour
     }
     void OnGUI()
     {
-        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+    GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
     }
-    // Start is called before the first frame update
+// Start is called before the first frame update
     void Start()
     {
-        
+
     }
-    // Update is called once per frame
+// Update is called once per frame
     void Update()
     {
-        
+
     }
 }
