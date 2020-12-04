@@ -613,7 +613,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9a1d6e46d42d58649b6a521301292b9f, type: 3}
+    m_Font: {fileID: 12800000, guid: 4e396e0bbce40914ca96a6d900cc2c07, type: 3}
     m_FontSize: 88
     m_FontStyle: 1
     m_BestFit: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041399118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -2286,6 +2286,11 @@ PrefabInstance:
       propertyPath: Curser
       value: 
       objectReference: {fileID: 41231301}
+    - target: {fileID: 1773688633843984815, guid: cb8154c1449265a469ac691b16270024,
+        type: 3}
+      propertyPath: hpbar
+      value: 
+      objectReference: {fileID: 909279101}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8154c1449265a469ac691b16270024, type: 3}
 --- !u!1001 &3269049330588762194

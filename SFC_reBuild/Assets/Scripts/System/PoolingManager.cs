@@ -10,7 +10,7 @@ public class PoolingManager : MonoBehaviour
     LinkedList<GameObject> ActiveList = new LinkedList<GameObject>();
     [SerializeField] public Color Graysmoke;
     public Player_Fire Player;
-    public Hashtable otherPlayers=new Hashtable();
+    public Hashtable otherPlayers = new Hashtable();
     //public List<Player_Fire> otherPlayers=new List<Player_Fire>();
     public player_Move TruePlayer;
     public GameObject BulletOrbit;
@@ -18,13 +18,18 @@ public class PoolingManager : MonoBehaviour
     public Text Player_magazine;
     public Hp_bar hpbar;
     [SerializeField] public Image Curser;
-    public bool isOPner=false;
+    public bool isOPner = false;
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            Debug.Log("<color=blue>Poolmanager Maked!</color>");
+        }
         else
             Destroy(this.gameObject);
+
+        isOPner=(PlayerPrefs.GetInt("isOner")==1)?true:false;
     }
     ///<summary>오브젝트 해제</summary> 
     public void ObjectRelease(GameObject target)
@@ -75,10 +80,16 @@ public class PoolingManager : MonoBehaviour
     void Start()
     {
         MakeObject(Startamount);
+        
     }
     public void PlayerInstantiateAfterInit()
     {
-        hpbar.player = TruePlayer.GetComponent<player_State>();
+        if (TruePlayer != null)
+        {
+            hpbar.player = TruePlayer.GetComponent<player_State>();
+        }
+        else
+            Debug.Log("True player is Empty!");
         hpbar.gameObject.SetActive(true);
         hpbar.Init();
     }

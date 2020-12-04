@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MainMenu_Manager : MonoBehaviour
 {
+    public static MainMenu_Manager Instant;
     AudioSource buttonSoundSource;
     [SerializeField]
     AudioClip pressSfx;
@@ -16,6 +17,11 @@ public class MainMenu_Manager : MonoBehaviour
     bool isFadeIn=true;
     float fadeImgAlpha=0;
     // Start is called before the first frame update
+    void Awake()
+    {
+        if(Instant==null)
+        Instant=this;
+    }
     void Start()
     {
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
@@ -52,7 +58,7 @@ public class MainMenu_Manager : MonoBehaviour
     public void TestButton()
     {
         press_buttonSfx();
-        StartCoroutine(FadeOut("Ingame"));
+        //StartCoroutine(FadeOut("Ingame"));
         //LoadingSceneManager.LoadScene("Ingame");
     }
     public void SetButton()
@@ -70,9 +76,8 @@ public class MainMenu_Manager : MonoBehaviour
            // Debug.Log("페이드 아웃중"+fade);
             yield return null;
         }
-        Debug.Log(fadeImg.color.a);
     }
-    IEnumerator FadeOut(string sceneName)
+    public IEnumerator FadeOut(string sceneName)
     {
         yield return new WaitForSeconds(1f);
         float fade = 0;

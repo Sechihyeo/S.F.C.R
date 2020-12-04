@@ -46,14 +46,14 @@ public class LoadingSceneManager : MonoBehaviour
 
         while(amount<=10)
         {
-            float temp=Random.Range(0.1f,3f);
+            float temp=2;
             yield return new WaitForSeconds(0.1f);
             amount+=temp;
         }
         float timer = 0.0f;
         while (!op.isDone)
         {
-            yield return new WaitForSeconds(Random.Range(0.1f,0.5f));
+            yield return new WaitForSeconds(0.2f);
 
             timer += Time.deltaTime;
 

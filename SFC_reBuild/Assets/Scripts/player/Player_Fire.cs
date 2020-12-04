@@ -45,7 +45,10 @@ public class Player_Fire : PunBehaviour
         }
         else
         {
+            if(PoolingManager.Instance!=null)
             PoolingManager.Instance.otherPlayers.Add(pv.viewID, this);
+            else
+            Debug.LogError("PoolingManager is Empty!");
         }
     }
 

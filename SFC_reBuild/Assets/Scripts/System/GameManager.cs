@@ -19,14 +19,11 @@ public class GameManager : PunBehaviour
     {
         pv=GetComponent<PhotonView>();
         pv.ObservedComponents[0] = this;
-        
-        // if(PoolingManager.Instance.isOPner)
-        // StartCoroutine(timer());
-       
+        if(PoolingManager.Instance.isOPner)
+         StartCoroutine(timer());
     }
     public void startCu()
     {
-         StartCoroutine(timer());
     }
     public IEnumerator timer()
     {
@@ -67,7 +64,7 @@ public class GameManager : PunBehaviour
         if (stream.isWriting)
         {
             stream.SendNext(gameTime);
-            Debug.Log("send time!:"+gameTime);
+            //Debug.Log("send time!:"+gameTime);
         }
         else 
         {   

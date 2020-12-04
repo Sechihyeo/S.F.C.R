@@ -30,7 +30,7 @@ public class player_Move : PunBehaviour
         }
         else
         {
-            Debug.Log(pv.viewID+"joinned!");
+            Debug.Log("<color=green>"+pv.viewID+"joinned!</color>");
         }
     }
     void Start()
