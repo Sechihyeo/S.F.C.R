@@ -5,7 +5,7 @@ using Photon.Realtime;
 using Photon;
 public class Player_Fire : PunBehaviour
 {
-
+    //sechi 제외 캐릭터들은 이 class를 상속받아 사용
     float nextfireQ;
     public float ShotDelay = 0.8f;
     public float Bulletspeed = 3, BulletDestroy = 1.5f;
@@ -27,6 +27,7 @@ public class Player_Fire : PunBehaviour
     [HideInInspector]
     public PhotonView pv;
     public GameObject gunbody;
+    public string bullname;
 
     protected void Start()
     {
@@ -98,7 +99,7 @@ public class Player_Fire : PunBehaviour
             pam[2] = Bulletspeed;
             pam[3] = BulletDestroy;
             pam[4] = pv.viewID;
-            PhotonNetwork.Instantiate("sechi_bullet", flamePosition.position, Quaternion.identity, 0)
+            PhotonNetwork.Instantiate(bullname, flamePosition.position, Quaternion.identity, 0)
             .GetComponent<PhotonView>().RPC("setToVector", PhotonTargets.All, pam);
 
         }

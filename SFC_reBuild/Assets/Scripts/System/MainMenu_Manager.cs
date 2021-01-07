@@ -8,28 +8,29 @@ public class MainMenu_Manager : MonoBehaviour
     AudioSource buttonSoundSource;
     [SerializeField]
     AudioClip pressSfx;
-      [SerializeField]
+    [SerializeField]
     AudioClip pressSfx2;
     [SerializeField]
-    float sfxvolume=1;
+    float sfxvolume = 1;
     [SerializeField]
-    Image fadeImg,fadelogo;
-    bool isFadeIn=true;
-    float fadeImgAlpha=0;
+    Image fadeImg, fadelogo;
+    bool isFadeIn = true;
+    float fadeImgAlpha = 0;
+    public int menuState = 0;
     // Start is called before the first frame update
     void Awake()
     {
-        if(Instant==null)
-        Instant=this;
+        if (Instant == null)
+            Instant = this;
     }
     void Start()
     {
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
-        buttonSoundSource.clip=pressSfx;
-        buttonSoundSource.volume=sfxvolume;
-        fadeImg.color=new Color(1,1,1,1);
-        fadeImgAlpha=fadeImg.color.a;
-        fadelogo.color=new Color(1,1,1,0);
+        buttonSoundSource.clip = pressSfx;
+        buttonSoundSource.volume = sfxvolume;
+        fadeImg.color = new Color(1, 1, 1, 1);
+        fadeImgAlpha = fadeImg.color.a;
+        fadelogo.color = new Color(1, 1, 1, 0);
         StartCoroutine(FadeIn());
     }
 
@@ -42,38 +43,52 @@ public class MainMenu_Manager : MonoBehaviour
         // //fadeImgAlpha+=(1-fadeImgAlpha)/10;
 
         // fadeImg.color=new Color(1,1,1,fadeImgAlpha);
-        
+
     }
-    
-    void press_buttonSfx()
+
+    public void press_buttonSfx()
     {
-        buttonSoundSource.clip=pressSfx;
+        buttonSoundSource.clip = pressSfx;
         buttonSoundSource.Play();
     }
-    void press_buttonSfx2()
+    public void press_buttonSfx2()
     {
-        buttonSoundSource.clip=pressSfx2;
+        buttonSoundSource.clip = pressSfx2;
         buttonSoundSource.Play();
     }
-    public void TestButton()
+    public void DefultButton_sound()
     {
         press_buttonSfx();
         //StartCoroutine(FadeOut("Ingame"));
         //LoadingSceneManager.LoadScene("Ingame");
     }
+    public void CharButton()
+    {
+        menuState = 1;
+    }
     public void SetButton()
     {
         press_buttonSfx2();
- 
+
+    }
+    public void backButton(bool justBack = false)
+    {
+        if (!justBack)
+        {
+            if (menuState - 1 >= 0)
+                menuState--;
+        }
+        else
+            menuState = 0;
     }
     IEnumerator FadeIn()
-    {      
+    {
         float fade = 1;
         while (fade >= 0)
         {
-            fade-=0.01f;
+            fade -= 0.01f;
             fadeImg.color = new Color(1, 1, 1, fade);
-           // Debug.Log("페이드 아웃중"+fade);
+            // Debug.Log("페이드 아웃중"+fade);
             yield return null;
         }
     }
@@ -83,10 +98,10 @@ public class MainMenu_Manager : MonoBehaviour
         float fade = 0;
         while (fade <= 1)
         {
-            fade+=0.01f;
+            fade += 0.01f;
             fadeImg.color = new Color(0, 0, 0, fade);
-            fadelogo.color=new Color(1,1,1,fade*0.3f);
-           // Debug.Log("페이드 아웃중"+fade);
+            fadelogo.color = new Color(1, 1, 1, fade * 0.3f);
+            // Debug.Log("페이드 아웃중"+fade);
             yield return null;
 
         }

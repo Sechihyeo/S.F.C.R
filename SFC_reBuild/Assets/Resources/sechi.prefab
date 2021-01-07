@@ -986,6 +986,7 @@ MonoBehaviour:
   tempreloadTime: 0
   pv: {fileID: 0}
   gunbody: {fileID: 6744515522806879950}
+  bullname: sechi_bullet
 --- !u!114 &6480245415715360469
 MonoBehaviour:
   m_ObjectHideFlags: 0

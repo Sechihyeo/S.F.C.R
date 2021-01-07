@@ -52,7 +52,12 @@ public class PHLobby : Photon.PunBehaviour
     {
 
     }
-
+    public void matCancel()
+    {
+       nowFindgame=false;
+       isJoined=false;
+       PhotonNetwork.LeaveRoom();
+    }
     // Update is called once per frame
     void Update()
     {

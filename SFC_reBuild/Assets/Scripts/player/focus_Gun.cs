@@ -41,6 +41,7 @@ public class focus_Gun : MonoBehaviour
         {
             rotateDegree += (toDegree-rotateDegree)/10;
         }
+        
             if (Mathf.Abs(rotateDegree) > 90)
             {
                 p_Player.transform.localScale = left;

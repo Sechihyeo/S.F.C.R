@@ -53,9 +53,9 @@ public class player_State : PunBehaviour
         GetComponent<player_Move>().gunfocus.enabled = true;
         GetComponent<player_Move>().enabled = true;
         GetComponent<Player_Fire>().enabled = true;
-        transform.localScale = playerorisize;
         Camera.main.GetComponent<ShakeManager>().Shake(0, 0, 0, 0.72f, 8);
         box_collider.enabled = true;
+        transform.localScale = playerorisize;
         isDead = false;
         yield return null;
     }
