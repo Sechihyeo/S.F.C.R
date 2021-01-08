@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 public class Main_illust : MonoBehaviour
 {
    // Image myImg;
@@ -11,10 +11,15 @@ public class Main_illust : MonoBehaviour
     public float focus;
     public float setDrainage=10;
     Vector3 targetPoint;
-    // Start is called before the first frame update
+    public Sprite blured;
+    Sprite ori_sprite;
+    Image myImage;
+    /*Start is called before the first frame update*/
     void Start()
     {
         zeroPoint=transform.localPosition;
+        myImage = gameObject.GetComponent<Image>();
+        ori_sprite = myImage.sprite;
     }
 
     // Update is called once per frame
@@ -31,5 +36,14 @@ public class Main_illust : MonoBehaviour
        targetPoint=Vector3.Lerp(zeroPoint,mousePos,-focus)*-setDrainage;
          }
          transform.localPosition+=(targetPoint-transform.localPosition)/10;
+      if(MainMenu_Manager.Instant.menuState==0)
+      {
+        myImage.sprite=ori_sprite;
+      }
+      else
+      {
+        myImage.sprite=blured;
+      }
+
     }   
 }

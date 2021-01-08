@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: -1
   setDrainage: 5
+  blured: {fileID: 21300000, guid: 7e80a0282cd56ac44a87b53fa9bb2b87, type: 3}
 --- !u!1 &106261061
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: -0.5
   setDrainage: 5
+  blured: {fileID: 21300000, guid: eabb132443277974f9a5136e9f68099f, type: 3}
 --- !u!1 &135155243
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: 0.75
   setDrainage: 5
+  blured: {fileID: 21300000, guid: b63c0c08164c3894abd09e51724dcc91, type: 3}
 --- !u!1 &335034493
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6509804}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1068,6 +1071,7 @@ GameObject:
   - component: {fileID: 561457354}
   - component: {fileID: 561457356}
   - component: {fileID: 561457355}
+  - component: {fileID: 561457357}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1107,7 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1135,6 +1139,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561457353}
   m_CullTransparentMesh: 0
+--- !u!114 &561457357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561457353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &617176994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: 0.3
   setDrainage: 5
+  blured: {fileID: 21300000, guid: 9dbacbfbee4942a42aac1959aec3feb0, type: 3}
 --- !u!114 &1453249726
 MonoBehaviour:
   m_ObjectHideFlags: 0
