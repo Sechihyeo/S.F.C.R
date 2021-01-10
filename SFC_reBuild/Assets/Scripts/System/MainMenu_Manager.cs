@@ -6,10 +6,13 @@ public class MainMenu_Manager : MonoBehaviour
 {
     public static MainMenu_Manager Instant;
     AudioSource buttonSoundSource;
+    AudioSource musicSS;
     [SerializeField]
     AudioClip pressSfx;
     [SerializeField]
     AudioClip pressSfx2;
+    [SerializeField]
+    AudioClip pressSfxmusic;
     [SerializeField]
     float sfxvolume = 1;
     [SerializeField]
@@ -31,9 +34,20 @@ public class MainMenu_Manager : MonoBehaviour
     }
     void Start()
     {
+        if(!PlayerPrefs.HasKey("musicVol"))
+        PlayerPrefs.SetFloat("musicVol",1);
+        if(!PlayerPrefs.HasKey("sfXVol"))
+        PlayerPrefs.SetFloat("sfXVol",1);
+        if(!PlayerPrefs.HasKey("masterVol"))
+        PlayerPrefs.SetFloat("masterVol",1);
+
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
         buttonSoundSource.clip = pressSfx;
-        buttonSoundSource.volume = sfxvolume;
+        buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
+        musicSS = gameObject.AddComponent<AudioSource>();
+        musicSS.clip = pressSfxmusic;
+        musicSS.volume = PlayerPrefs.GetFloat("musicVol")*PlayerPrefs.GetFloat("masterVol");
+        musicSS.Play();
         fadeImg.color = new Color(1, 1, 1, 1);
         fadeImgAlpha = fadeImg.color.a;
         fadelogo.color = new Color(1, 1, 1, 0);
@@ -45,6 +59,8 @@ public class MainMenu_Manager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
+        musicSS.volume = PlayerPrefs.GetFloat("musicVol")*PlayerPrefs.GetFloat("masterVol");
         // if(isFadeIn)
         // fadeImgAlpha+=(0-fadeImgAlpha)/10;
         // else
