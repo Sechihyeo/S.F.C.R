@@ -19,7 +19,10 @@ public class MainMenu_Manager : MonoBehaviour
     public int menuState = 0;
      [SerializeField]
      GameObject setObj;
+      [SerializeField]
+     GameObject cerObj;
      bool isSet;
+     bool isCer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,6 +39,7 @@ public class MainMenu_Manager : MonoBehaviour
         fadelogo.color = new Color(1, 1, 1, 0);
         StartCoroutine(FadeIn());
         setObj.SetActive(false);
+        cerObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -88,6 +92,10 @@ public class MainMenu_Manager : MonoBehaviour
     public void setObj_act()
     {
         setObj.SetActive(!setObj.GetActive());
+    }
+    public void cerObj_act()
+    {
+        cerObj.SetActive(!cerObj.GetActive());
     }
     IEnumerator FadeIn()
     {
