@@ -47,6 +47,7 @@ public class MainMenu_Manager : MonoBehaviour
         musicSS = gameObject.AddComponent<AudioSource>();
         musicSS.clip = pressSfxmusic;
         musicSS.volume = PlayerPrefs.GetFloat("musicVol")*PlayerPrefs.GetFloat("masterVol");
+        musicSS.loop = true;
         musicSS.Play();
         fadeImg.color = new Color(1, 1, 1, 1);
         fadeImgAlpha = fadeImg.color.a;
