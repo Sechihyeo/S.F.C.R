@@ -20,12 +20,36 @@ public class MainMenu_Manager : MonoBehaviour
     bool isFadeIn = true;
     float fadeImgAlpha = 0;
     public int menuState = 0;
-     [SerializeField]
+    [SerializeField]
      GameObject setObj;
-      [SerializeField]
+    [SerializeField]
      GameObject cerObj;
      bool isSet;
      bool isCer;
+    int setPlayerID=0;
+    string[] charName = new string[6]{"세치","끼룩","M-얌미&G","HICES","토끼","개까치"};
+    string[] charExName = 
+    new string[6]{
+        "강력한 순간화력을 가진 샷건으로\n근거리를 압도합니다.",
+        "돌격소총은 안정적인 중거리 화력을 보장합니다.",
+        "높은 정확도와 절륜한 공격력을 자랑하는 리볼버로\n게임의 판도를 지배합니다.",
+        "전장의 꽃, 저격소총입니다.",
+        "중장거리의 스페셜 리스트인 지정사수 소총은\n신속하고 정확한 반자동 사격을 자랑합니다.",
+        "제작자 입니다. 딱히 플레이는 못합니다."
+        };
+    string[] charFlText = new string[6]{
+    "\"???:소리만 지르던게 그렇게 셀 줄은 몰랐지\"",
+    "\"하얀 악마라고 불립니다\"",
+    "\"치명적인 귀여움(리볼버, 물리)\"",
+    "\"자꾸 죽은 사람 취급당한다는군요\"",
+    "\"아쉽게도 개런드 클립소리는 없습니다\"",
+    "\"2월 15일 입대한다네요\""};
+    [SerializeField]
+    Text charNameText; 
+    [SerializeField]
+    Text charExNameText;
+    [SerializeField]
+    Text charFlText_Text;
     // Start is called before the first frame update
     void Awake()
     {
@@ -55,6 +79,9 @@ public class MainMenu_Manager : MonoBehaviour
         StartCoroutine(FadeIn());
         setObj.SetActive(false);
         cerObj.SetActive(false);
+        charNameText.text =charName[0];
+        charExNameText.text =charExName[0];
+        charFlText_Text.text =charFlText[0];
     }
 
     // Update is called once per frame
@@ -140,5 +167,23 @@ public class MainMenu_Manager : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         LoadingSceneManager.LoadScene(sceneName);
+    }
+    public void char_turn(bool isUpper=true)
+    {
+        if(isUpper)
+        {
+            if(setPlayerID<=4)
+            {
+                setPlayerID++;
+            }
+        }
+        else
+        if(setPlayerID>=1)
+        {
+            setPlayerID--;
+        }
+        charNameText.text =charName[setPlayerID];
+        charExNameText.text =charExName[setPlayerID];
+        charFlText_Text.text =charFlText[setPlayerID];
     }
 }
