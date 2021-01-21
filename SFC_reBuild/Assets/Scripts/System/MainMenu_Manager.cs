@@ -26,8 +26,8 @@ public class MainMenu_Manager : MonoBehaviour
      GameObject cerObj;
      bool isSet;
      bool isCer;
-    int setPlayerID=0;
-    string[] charName = new string[6]{"세치","끼룩","M-얌미&G","HICES","토끼","개까치"};
+    public int setPlayerID=0;
+    string[] charName = new string[6]{"세치","끼룩","M-얌미&G","HICES","아귀","개까치"};
     string[] charExName = 
     new string[6]{
         "강력한 순간화력을 가진 샷건으로\n근거리를 압도합니다.",
@@ -43,7 +43,7 @@ public class MainMenu_Manager : MonoBehaviour
     "\"치명적인 귀여움(리볼버, 물리)\"",
     "\"자꾸 죽은 사람 취급당한다는군요\"",
     "\"아쉽게도 개런드 클립소리는 없습니다\"",
-    "\"2월 15일 입대한다네요\""};
+    "\"2월 15일 입대합니다\n게임이 좋았ㄷ다면 애니에 특별 출현좀 헤헤\""};
     [SerializeField]
     Text charNameText; 
     [SerializeField]
@@ -64,7 +64,10 @@ public class MainMenu_Manager : MonoBehaviour
         PlayerPrefs.SetFloat("sfXVol",1);
         if(!PlayerPrefs.HasKey("masterVol"))
         PlayerPrefs.SetFloat("masterVol",1);
+        if(!PlayerPrefs.HasKey("Player_ID"))
+        PlayerPrefs.SetInt("Player_ID",0);
 
+        setPlayerID = PlayerPrefs.GetInt("Player_ID");
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
         buttonSoundSource.clip = pressSfx;
         buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
@@ -97,7 +100,17 @@ public class MainMenu_Manager : MonoBehaviour
         // fadeImg.color=new Color(1,1,1,fadeImgAlpha);
 
     }
-
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            char_turn(false);
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            char_turn(true);
+        }
+    }
     public void press_buttonSfx()
     {
         buttonSoundSource.clip = pressSfx;
