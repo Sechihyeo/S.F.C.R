@@ -50,6 +50,8 @@ public class MainMenu_Manager : MonoBehaviour
     Text charExNameText;
     [SerializeField]
     Text charFlText_Text;
+    [SerializeField]
+    Text choiced_Text;
     // Start is called before the first frame update
     void Awake()
     {
@@ -82,9 +84,13 @@ public class MainMenu_Manager : MonoBehaviour
         StartCoroutine(FadeIn());
         setObj.SetActive(false);
         cerObj.SetActive(false);
-        charNameText.text =charName[0];
-        charExNameText.text =charExName[0];
-        charFlText_Text.text =charFlText[0];
+        charNameText.text =charName[setPlayerID];
+        charExNameText.text =charExName[setPlayerID];
+        charFlText_Text.text =charFlText[setPlayerID];
+        if(PlayerPrefs.GetInt("Player_ID")==setPlayerID)
+        choiced_Text.text = "선택됨!";
+        else
+        choiced_Text.text = "";
     }
 
     // Update is called once per frame
@@ -198,5 +204,15 @@ public class MainMenu_Manager : MonoBehaviour
         charNameText.text =charName[setPlayerID];
         charExNameText.text =charExName[setPlayerID];
         charFlText_Text.text =charFlText[setPlayerID];
+        if(PlayerPrefs.GetInt("Player_ID")==setPlayerID)
+        choiced_Text.text = "선택됨!";
+        else
+        choiced_Text.text = "";
+    }
+    public void choice_button()
+    {   
+        if(setPlayerID!=5)
+        PlayerPrefs.SetInt("Player_ID",setPlayerID);
+        choiced_Text.text = "선택됨!";
     }
 }
