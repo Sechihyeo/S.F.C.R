@@ -28,8 +28,13 @@ public class Player_Fire : PunBehaviour
     public PhotonView pv;
     public GameObject gunbody;
     public string bullname;
-
-    protected void Start()
+    public float skake=0.8f;
+    public float gunShake=1;
+    public float gunShake_angle=5;
+    public float tanning =10;
+    public float reaction=0;
+    Vector3 oriGunpos;
+    public void Start()
     {
         Fireaudio = gameObject.AddComponent<AudioSource>();
         Fireaudio.clip = FireSfx;
@@ -39,6 +44,7 @@ public class Player_Fire : PunBehaviour
         ReloadAudio.volume = sound_volume * 2;
         oriscale = gunbody.transform.localScale.x;
         Cur_magazine = Max_magazine;
+        oriGunpos = gunbody.transform.localPosition;
         Debug.Log("Fire ID:"+pv.viewID);
         if (pv.isMine)
         {
@@ -54,11 +60,12 @@ public class Player_Fire : PunBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    public void Update()
     {
          
         gunbody.transform.localEulerAngles += (new Vector3(0, 0, 0) - gunbody.transform.localEulerAngles) / 10;
         gunbody.transform.localScale += (new Vector3(oriscale, oriscale, 1) - gunbody.transform.localScale) / 10;
+        gunbody.transform.localPosition+=(oriGunpos - gunbody.transform.localPosition)/10;
         if (!pv.isMine) return;
 
         if (isAuto)
@@ -83,7 +90,7 @@ public class Player_Fire : PunBehaviour
         }
 
     }
-    protected virtual void CreateBullet()
+    public virtual void CreateBullet()
     {
         if(!pv.isMine)
         return;
@@ -94,7 +101,7 @@ public class Player_Fire : PunBehaviour
         {
             object[] pam = new object[5];
             pam[0] = VectorRotation(PointDirection(transform.position,
-            Camera.main.ScreenToWorldPoint(Input.mousePosition)) + (5 * i) + Random.Range(-10.0f, 10.0f));
+            Camera.main.ScreenToWorldPoint(Input.mousePosition)) + (5 * i) + Random.Range(-tanning, tanning));
             pam[1] = OBsize;
             pam[2] = Bulletspeed;
             pam[3] = BulletDestroy;
@@ -106,17 +113,18 @@ public class Player_Fire : PunBehaviour
     }
 
     [PunRPC]
-    protected virtual void FireBullet()
+    public virtual void FireBullet()
     {
 
         if (Cur_magazine > 0 && !nowReload)
         {
             Cur_magazine--;
-            gunbody.transform.localScale += new Vector3(0, 1f);
-            gunbody.transform.localEulerAngles += new Vector3(0, 0, 5);
+            gunbody.transform.localScale += new Vector3(0, gunShake);
+            gunbody.transform.localEulerAngles += new Vector3(0, 0, gunShake_angle);
+            gunbody.transform.localPosition +=new Vector3(reaction,0);
             Instantiate(gunflame).transform.position = flamePosition.position + new Vector3(0, 0, -3);
              if (pv.isMine)
-            Camera.main.GetComponent<ShakeManager>().Shake(0, 0, 0, 0.8f, 8);
+            Camera.main.GetComponent<ShakeManager>().Shake(0, 0, 0, skake, 8);
             CreateBullet();
 
             Fireaudio.Play();
@@ -126,12 +134,12 @@ public class Player_Fire : PunBehaviour
         nextfireQ = Time.time + ShotDelay;
     }
     [PunRPC]
-    void co_Reload()
+    public void co_Reload()
     {
         if(!nowReload)
         StartCoroutine(Reload());
     }
-    IEnumerator Reload()
+    public IEnumerator Reload()
     {
         tempreloadTime = reloadTime;
         nowReload = true;

@@ -42,7 +42,7 @@ public class PhotonInit : Photon.PunBehaviour
         yield return new WaitForSeconds(2f);
         
         GameManager.Instance.startCu();
-        PhotonNetwork.Instantiate("sechi",new Vector3((PoolingManager.Instance.isOPner)?-3:3,0,0),Quaternion.identity,0);
+        PhotonNetwork.Instantiate("p"+PlayerPrefs.GetInt("Player_ID"),new Vector3((PoolingManager.Instance.isOPner)?-3:3,0,0),Quaternion.identity,0);
         yield return null;
     }
     void OnGUI()
