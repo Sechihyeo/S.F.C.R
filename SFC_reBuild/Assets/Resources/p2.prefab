@@ -987,8 +987,7 @@ MonoBehaviour:
   bulletInst: {fileID: 2537432882461127350, guid: bce40d631ae96134e8b1f0443a96ddc5,
     type: 3}
   FireSfx: {fileID: 8300000, guid: df54fe5746881bb409b31a023d52446c, type: 3}
-  ReloadSfx: {fileID: 8300000, guid: bc99a42e1af92cb4080f9f77e372887f, type: 3}
-  sound_volume: 1
+  ReloadSfx: {fileID: 8300000, guid: 0ce385376a662d9469075bb75527e89a, type: 3}
   flamePosition: {fileID: 703988692870965354}
   gunflame: {fileID: 2317673368762833909, guid: ce45823f8960ac745a8e0956cd777483,
     type: 3}

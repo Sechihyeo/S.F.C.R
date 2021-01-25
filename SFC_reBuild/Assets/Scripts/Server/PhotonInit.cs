@@ -45,6 +45,10 @@ public class PhotonInit : Photon.PunBehaviour
         PhotonNetwork.Instantiate("p"+PlayerPrefs.GetInt("Player_ID"),new Vector3((PoolingManager.Instance.isOPner)?-3:3,0,0),Quaternion.identity,0);
         yield return null;
     }
+    public static void leaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
     void OnGUI()
     {
     GUILayout.Label(PhotonNetwork.room.Name);

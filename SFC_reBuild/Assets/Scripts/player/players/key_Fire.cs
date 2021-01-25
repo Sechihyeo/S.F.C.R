@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class key_Fire : Player_Fire
 {
+    Vector3 rt;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,14 @@ public class key_Fire : Player_Fire
 
         
             object[] pam = new object[5];
-            pam[0] = VectorRotation(PointDirection(transform.position,
+            rt= VectorRotation(PointDirection(transform.position,
             Camera.main.ScreenToWorldPoint(Input.mousePosition))+ Random.Range(-tanning,tanning));
+            pam[0] = rt;
             pam[1] = OBsize;
             pam[2] = Bulletspeed;
             pam[3] = BulletDestroy;
             pam[4] = pv.viewID;
-            PhotonNetwork.Instantiate(bullname, flamePosition.position, Quaternion.identity, 0)
+            PhotonNetwork.Instantiate(bullname, flamePosition.position,Quaternion.Euler(rt), 0)
             .GetComponent<PhotonView>().RPC("setToVector", PhotonTargets.All, pam);
         
     }

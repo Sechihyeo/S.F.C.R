@@ -74,8 +74,8 @@ SpriteRenderer:
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_DrawMode: 1
+  m_Size: {x: 0.80997825, y: 0.5531689}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7158282649104788349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2934.6372, y: 832.43353, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 0.32, z: -1}
   m_Children:
   - {fileID: 2058368264828201692}
   m_Father: {fileID: 0}
@@ -159,8 +159,8 @@ SpriteRenderer:
   m_Color: {r: 0.09301472, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_DrawMode: 1
+  m_Size: {x: 0.99140805, y: 0.49605536}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -182,6 +182,7 @@ MonoBehaviour:
   toVector: {x: 0, y: 0, z: 0}
   speed: 3
   size: 0
+  size_y: 0
   firerateQ: 0.001
   BulletOrbitObject: {fileID: 8523802987168825418, guid: 4121a2ba3bcd42a4a8cf65bc27ede182,
     type: 3}
@@ -191,6 +192,8 @@ MonoBehaviour:
   OrbitSize: 0.65
   bullet_damage: 60
   fireID: 0
+  rotateDegree: 0
+  toDegree: 0
 --- !u!61 &3528571615522265661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,18 +207,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0016749948, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.19, y: 0.19, z: 0.17999999, w: 0.19}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.99140805, y: 0.49605536}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42, y: 0.44}
+  m_Size: {x: 0.93257654, y: 0.44}
   m_EdgeRadius: 0
 --- !u!114 &6504885441817864746
 MonoBehaviour:

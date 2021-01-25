@@ -198,7 +198,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6f7bc0aa7cab507478b30f8a9bab0d3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 7129080275382375740}
   - component: {fileID: 6480245415715360469}
   m_Layer: 8
-  m_Name: sechi
+  m_Name: p0
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,13 +966,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotDelay: 0.15
-  Bulletspeed: 8
+  Bulletspeed: 10
   BulletDestroy: 1.2
   bulletInst: {fileID: 4945821651303979414, guid: c10b9665ca7bcce46a5e1850df1cb8b9,
     type: 3}
   FireSfx: {fileID: 8300000, guid: 9ecbc4fe17dddaa4a912dc5be596b4dd, type: 3}
   ReloadSfx: {fileID: 8300000, guid: bc99a42e1af92cb4080f9f77e372887f, type: 3}
-  sound_volume: 0.16
   flamePosition: {fileID: 6744515523534938802}
   gunflame: {fileID: 2317673368762833909, guid: ce45823f8960ac745a8e0956cd777483,
     type: 3}
@@ -991,7 +990,7 @@ MonoBehaviour:
   gunShake: 1
   gunShake_angle: 5
   tanning: 10
-  reaction: 0
+  reaction: -1.5
 --- !u!114 &6480245415715360469
 MonoBehaviour:
   m_ObjectHideFlags: 0

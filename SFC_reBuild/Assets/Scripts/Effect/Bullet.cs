@@ -9,6 +9,7 @@ public class Bullet : PunBehaviour
     public Vector3 toVector;
     public float speed =3;
     public float size=0;
+     public float size_y=0;
     float nextfireQ;
     public float firerateQ = 0.0185f;
     public GameObject BulletOrbitObject;
@@ -17,9 +18,15 @@ public class Bullet : PunBehaviour
     public float OrbitSize=0.65f;
     public float bullet_damage=10;
     public int fireID;
+    Vector3 mPosition;
+    Vector3 oPosition;
+    Vector3 target;
+    public float rotateDegree;
+    public float toDegree;
     void Start()
     {
         size=transform.localScale.x;
+        size_y=transform.localScale.y;
         PV=GetComponent<PhotonView>();
     }
     void BulletOrbit()
@@ -38,10 +45,10 @@ public class Bullet : PunBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(toVector*Time.deltaTime*speed);
+        transform.Translate(toVector*Time.deltaTime*speed,Space.World);
         //speed+=(0-speed)/160;
         //size-=size/190;
-        transform.localScale=new Vector3(size,size);
+        transform.localScale=new Vector3(size,size_y);
         if(nextfireQ<Time.time)
         BulletOrbit();
         LocalDestroy(false);
@@ -81,6 +88,22 @@ public class Bullet : PunBehaviour
         speed=pspeed;
         DestroyTime=pdTime;
         fireID=pfireID;
+        //transform.localRotation = Quaternion.Euler(0,0,PointDirection(new Vector2(transform.localPosition.x,transform.localPosition.y),new Vector2(toVector.x,toVector.y)));
+        //개짓거리
+        mPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        oPosition = transform.localPosition;
+        target = mPosition - oPosition;
+        rotateDegree = -1 * Mathf.Atan2(target.x, target.y) * Mathf.Rad2Deg + 90;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotateDegree);
+        
         return;
+    }
+    public float PointDirection(Vector2 pos1, Vector2 pos2)
+    {
+        Vector2 pos = pos2 - pos1;
+        float angle = (float)Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
+        if (angle < 0f)
+            angle += 360f;
+        return angle;
     }
 }

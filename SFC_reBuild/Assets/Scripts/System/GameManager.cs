@@ -21,6 +21,8 @@ public class GameManager : PunBehaviour
         pv.ObservedComponents[0] = this;
         if(PoolingManager.Instance.isOPner)
          StartCoroutine(timer());
+
+
     }
     public void startCu()
     {
@@ -57,6 +59,11 @@ public class GameManager : PunBehaviour
         else
         leftTime.text="Time Over!";
 
+        if(Input.GetKey(KeyCode.P))
+         {
+             PhotonInit.leaveRoom();
+             LoadingSceneManager.LoadScene("Main_menu");
+         }
         
     }
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

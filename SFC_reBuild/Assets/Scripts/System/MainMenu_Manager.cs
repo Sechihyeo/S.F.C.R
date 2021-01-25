@@ -21,14 +21,14 @@ public class MainMenu_Manager : MonoBehaviour
     float fadeImgAlpha = 0;
     public int menuState = 0;
     [SerializeField]
-     GameObject setObj;
+    GameObject setObj;
     [SerializeField]
-     GameObject cerObj;
-     bool isSet;
-     bool isCer;
-    public int setPlayerID=0;
-    string[] charName = new string[6]{"세치","끼룩","M-얌미&G","HICES","아귀","개까치"};
-    string[] charExName = 
+    GameObject cerObj;
+    bool isSet;
+    bool isCer;
+    public int setPlayerID = 0;
+    string[] charName = new string[6] { "세치", "끼룩", "M-얌미&G", "HICES", "아귀", "개까치" };
+    string[] charExName =
     new string[6]{
         "강력한 순간화력을 가진 샷건으로\n근거리를 압도합니다.",
         "돌격소총은 안정적인 중거리 화력을 보장합니다.",
@@ -42,10 +42,10 @@ public class MainMenu_Manager : MonoBehaviour
     "\"하얀 악마라고 불립니다\"",
     "\"치명적인 귀여움(리볼버, 물리)\"",
     "\"자꾸 죽은 사람 취급당한다는군요\"",
-    "\"아쉽게도 개런드 클립소리는 없습니다\"",
+    "\"여긴 물 밖인데.\"",
     "\"2월 15일 입대합니다\n게임이 좋았ㄷ다면 애니에 특별 출현좀 헤헤\""};
     [SerializeField]
-    Text charNameText; 
+    Text charNameText;
     [SerializeField]
     Text charExNameText;
     [SerializeField]
@@ -60,22 +60,22 @@ public class MainMenu_Manager : MonoBehaviour
     }
     void Start()
     {
-        if(!PlayerPrefs.HasKey("musicVol"))
-        PlayerPrefs.SetFloat("musicVol",1);
-        if(!PlayerPrefs.HasKey("sfXVol"))
-        PlayerPrefs.SetFloat("sfXVol",1);
-        if(!PlayerPrefs.HasKey("masterVol"))
-        PlayerPrefs.SetFloat("masterVol",1);
-        if(!PlayerPrefs.HasKey("Player_ID"))
-        PlayerPrefs.SetInt("Player_ID",0);
+        if (!PlayerPrefs.HasKey("musicVol"))
+            PlayerPrefs.SetFloat("musicVol", 1);
+        if (!PlayerPrefs.HasKey("sfXVol"))
+            PlayerPrefs.SetFloat("sfXVol", 1);
+        if (!PlayerPrefs.HasKey("masterVol"))
+            PlayerPrefs.SetFloat("masterVol", 1);
+        if (!PlayerPrefs.HasKey("Player_ID"))
+            PlayerPrefs.SetInt("Player_ID", 0);
 
         setPlayerID = PlayerPrefs.GetInt("Player_ID");
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
         buttonSoundSource.clip = pressSfx;
-        buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
+        buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol") * PlayerPrefs.GetFloat("masterVol");
         musicSS = gameObject.AddComponent<AudioSource>();
         musicSS.clip = pressSfxmusic;
-        musicSS.volume = PlayerPrefs.GetFloat("musicVol")*PlayerPrefs.GetFloat("masterVol");
+        musicSS.volume = PlayerPrefs.GetFloat("musicVol") * PlayerPrefs.GetFloat("masterVol");
         musicSS.loop = true;
         musicSS.Play();
         fadeImg.color = new Color(1, 1, 1, 1);
@@ -84,20 +84,20 @@ public class MainMenu_Manager : MonoBehaviour
         StartCoroutine(FadeIn());
         setObj.SetActive(false);
         cerObj.SetActive(false);
-        charNameText.text =charName[setPlayerID];
-        charExNameText.text =charExName[setPlayerID];
-        charFlText_Text.text =charFlText[setPlayerID];
-        if(PlayerPrefs.GetInt("Player_ID")==setPlayerID)
-        choiced_Text.text = "선택됨!";
+        charNameText.text = charName[setPlayerID];
+        charExNameText.text = charExName[setPlayerID];
+        charFlText_Text.text = charFlText[setPlayerID];
+        if (PlayerPrefs.GetInt("Player_ID") == setPlayerID)
+            choiced_Text.text = "선택됨!";
         else
-        choiced_Text.text = "";
+            choiced_Text.text = "";
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
-        musicSS.volume = PlayerPrefs.GetFloat("musicVol")*PlayerPrefs.GetFloat("masterVol");
+        buttonSoundSource.volume = PlayerPrefs.GetFloat("sfXVol") * PlayerPrefs.GetFloat("masterVol");
+        musicSS.volume = PlayerPrefs.GetFloat("musicVol") * PlayerPrefs.GetFloat("masterVol");
         // if(isFadeIn)
         // fadeImgAlpha+=(0-fadeImgAlpha)/10;
         // else
@@ -108,11 +108,11 @@ public class MainMenu_Manager : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             char_turn(false);
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             char_turn(true);
         }
@@ -187,32 +187,34 @@ public class MainMenu_Manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         LoadingSceneManager.LoadScene(sceneName);
     }
-    public void char_turn(bool isUpper=true)
+    public void char_turn(bool isUpper = true)
     {
-        if(isUpper)
+        if (isUpper)
         {
-            if(setPlayerID<=4)
+            if (setPlayerID <= 4)
             {
                 setPlayerID++;
             }
         }
         else
-        if(setPlayerID>=1)
+        if (setPlayerID >= 1)
         {
             setPlayerID--;
         }
-        charNameText.text =charName[setPlayerID];
-        charExNameText.text =charExName[setPlayerID];
-        charFlText_Text.text =charFlText[setPlayerID];
-        if(PlayerPrefs.GetInt("Player_ID")==setPlayerID)
-        choiced_Text.text = "선택됨!";
+        charNameText.text = charName[setPlayerID];
+        charExNameText.text = charExName[setPlayerID];
+        charFlText_Text.text = charFlText[setPlayerID];
+        if (PlayerPrefs.GetInt("Player_ID") == setPlayerID)
+            choiced_Text.text = "선택됨!";
         else
-        choiced_Text.text = "";
+            choiced_Text.text = "";
     }
     public void choice_button()
-    {   
-        if(setPlayerID!=5)
-        PlayerPrefs.SetInt("Player_ID",setPlayerID);
-        choiced_Text.text = "선택됨!";
+    {
+        if (setPlayerID != 5)
+        {
+            PlayerPrefs.SetInt("Player_ID", setPlayerID);
+            choiced_Text.text = "선택됨!";
+        }
     }
 }

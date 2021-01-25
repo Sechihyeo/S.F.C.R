@@ -13,7 +13,6 @@ public class Player_Fire : PunBehaviour
     [HideInInspector]
     AudioSource Fireaudio, ReloadAudio;
     public AudioClip FireSfx, ReloadSfx;
-    public float sound_volume = 1;
     public Transform flamePosition;
     public GameObject gunflame;
     public int Max_magazine = 2, Cur_magazine;
@@ -38,10 +37,10 @@ public class Player_Fire : PunBehaviour
     {
         Fireaudio = gameObject.AddComponent<AudioSource>();
         Fireaudio.clip = FireSfx;
-        Fireaudio.volume = sound_volume;
+        Fireaudio.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
         ReloadAudio = gameObject.AddComponent<AudioSource>();
         ReloadAudio.clip = ReloadSfx;
-        ReloadAudio.volume = sound_volume * 2;
+        ReloadAudio.volume = PlayerPrefs.GetFloat("sfXVol")*PlayerPrefs.GetFloat("masterVol");
         oriscale = gunbody.transform.localScale.x;
         Cur_magazine = Max_magazine;
         oriGunpos = gunbody.transform.localPosition;
