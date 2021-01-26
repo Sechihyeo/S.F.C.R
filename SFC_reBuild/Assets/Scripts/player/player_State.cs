@@ -19,7 +19,7 @@ public class player_State : PunBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!isDead)
         hitScan();
@@ -38,14 +38,14 @@ public class player_State : PunBehaviour
         {
         GameObject tempOb = PoolingManager.Instance.ObjectResume();
         tempOb.GetComponent<GunOrbit>().Init(false,transform.position-new Vector3(0,0,1)+new Vector3(Random.Range(-0.7f,0.7f),Random.Range(-0.7f,0.7f)),new Vector3(0.65f*4,0.65f*4));
-        tempOb.GetComponent<GunOrbit>().sizeReduction=0.08f;
+        tempOb.GetComponent<GunOrbit>().sizeReduction=0.08f/((float)Application.targetFrameRate/144);
         tempOb.GetComponent<SpriteRenderer>().color = new Color(255/255f, 51/255f, 21/255f);
   
         tempOb.GetComponent<SpriteRenderer>().renderingLayerMask=1;
         GameObject tempObshadow = PoolingManager.Instance.ObjectResume();
         tempObshadow.GetComponent<GunOrbit>().Init(false,tempOb.transform.position+ new Vector3(0, 0, 0.1f),tempOb.transform.localScale+new Vector3(0.3f,0.3f, 0));
         tempObshadow.gameObject.GetComponent<SpriteRenderer>().color = new Color(0/255f,0/255f,00/255f);
-        tempObshadow.GetComponent<GunOrbit>().sizeReduction=0.08f;
+        tempObshadow.GetComponent<GunOrbit>().sizeReduction=0.08f/((float)Application.targetFrameRate/144);
         }
         StartCoroutine(coDie());
     }

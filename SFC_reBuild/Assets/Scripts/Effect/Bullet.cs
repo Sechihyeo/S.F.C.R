@@ -43,7 +43,7 @@ public class Bullet : PunBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(toVector*Time.deltaTime*speed,Space.World);
         //speed+=(0-speed)/160;
@@ -69,7 +69,7 @@ public class Bullet : PunBehaviour
         Camera.main.GetComponent<ShakeManager>().Shake(0,0,0,1.1f,5);
         GameObject tempOb = PoolingManager.Instance.ObjectResume();
         tempOb.GetComponent<GunOrbit>().Init(false,transform.position-new Vector3(0,0,1),new Vector3(OrbitSize*4,OrbitSize*4));
-        tempOb.GetComponent<GunOrbit>().sizeReduction=0.06f;
+        tempOb.GetComponent<GunOrbit>().sizeReduction=0.06f/((float)Application.targetFrameRate/144);
         tempOb.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
         tempOb.GetComponent<GunOrbit>().myColor = new Color(255/255f,24/255f,45/255f);
         tempOb.GetComponent<GunOrbit>().colored=true;
@@ -78,7 +78,7 @@ public class Bullet : PunBehaviour
         tempObshadow.GetComponent<GunOrbit>().Init(false,tempOb.transform.position+ new Vector3(0, 0, 0.1f),tempOb.transform.localScale+new Vector3(outline,outline, 0));
         tempObshadow.gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
         tempObshadow.GetComponent<GunOrbit>().targetFigure=outline_targetFigure;
-        tempObshadow.GetComponent<GunOrbit>().sizeReduction=0.06f;
+        tempObshadow.GetComponent<GunOrbit>().sizeReduction=tempOb.GetComponent<GunOrbit>().sizeReduction;
     }
     [PunRPC]
     public void setToVector(Vector3 pVector,float obSize,float pspeed,float pdTime,int pfireID)

@@ -52,6 +52,8 @@ public class MainMenu_Manager : MonoBehaviour
     Text charFlText_Text;
     [SerializeField]
     Text choiced_Text;
+    [SerializeField]
+    Text fps_text;
     // Start is called before the first frame update
     void Awake()
     {
@@ -70,7 +72,8 @@ public class MainMenu_Manager : MonoBehaviour
             PlayerPrefs.SetInt("shakeVol", 1);
         if (!PlayerPrefs.HasKey("Player_ID"))
             PlayerPrefs.SetInt("Player_ID", 0);
-        
+        if (!PlayerPrefs.HasKey("FPS"))
+            PlayerPrefs.SetFloat("FPS", 60);
         setPlayerID = PlayerPrefs.GetInt("Player_ID");
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
         buttonSoundSource.clip = pressSfx;
@@ -118,6 +121,9 @@ public class MainMenu_Manager : MonoBehaviour
         {
             char_turn(true);
         }
+        
+        fps_text.text=((int)PlayerPrefs.GetFloat("FPS")).ToString();
+        //Debug.Log(PlayerPrefs.GetInt("FPS"));
     }
     public void press_buttonSfx()
     {

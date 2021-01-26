@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShakeManager : MonoBehaviour
 {
-  public float shake_x = 0;
+    public float shake_x = 0;
     public float shake_y = 0;
     public float shake_dire = 0;
     public float size = 1;
@@ -14,11 +14,11 @@ public class ShakeManager : MonoBehaviour
     GameObject player;
     public Transform target;
     float shakeVol;
+    Vector3 view_transform;
     void Awake()
     {
-
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 144;
+        Application.targetFrameRate = (int)PlayerPrefs.GetFloat("FPS");
 
     }
 
@@ -31,23 +31,27 @@ public class ShakeManager : MonoBehaviour
     }
     void Update()
     {
-        ShakeUpdate();
     }
     void LateUpdate()
     {
-        if(target!=null)
-        transform.position = target.transform.position - new Vector3(0, 0, 10);
+        ShakeUpdate();
+        if (target != null)
+        {       
+                view_transform=Vector3.Lerp(target.transform.position,Camera.main.ScreenToWorldPoint(Input.mousePosition),0.2f);
+                transform.position += (((view_transform - new Vector3(0, 0, 10))-transform.position)/20);
+                transform.position = new Vector3(transform.position.x,transform.position.y,target.transform.position.z-20);
+        }
     }
     public void Shake(float x = 0, float y = 0, float dire = 0, float size = 1.5f, float length = 10)
-    { 
-        if(x!=0)
-        shake_x = x;
-        if(y!=0)
-        shake_y = y;
-        if(dire!=0)
-        shake_dire = dire+((-dire)*(1-shakeVol));
-        this.size = size+((1 - size)*(1-shakeVol));
-        
+    {
+        if (x != 0)
+            shake_x = x;
+        if (y != 0)
+            shake_y = y;
+        if (dire != 0)
+            shake_dire = dire + ((-dire) * (1 - shakeVol));
+        this.size = size + ((1 - size) * (1 - shakeVol));
+
         this.length = length;
     }
 

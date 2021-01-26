@@ -16,6 +16,10 @@ public class key_Fire : Player_Fire
     {
         base.Update();
     }
+    void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
     public override void CreateBullet()
     {
         if(!pv.isMine)

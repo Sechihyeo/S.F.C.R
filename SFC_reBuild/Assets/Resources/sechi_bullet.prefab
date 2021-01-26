@@ -182,6 +182,7 @@ MonoBehaviour:
   toVector: {x: 0, y: 0, z: 0}
   speed: 3
   size: 0
+  size_y: 0
   firerateQ: 0.015
   BulletOrbitObject: {fileID: 8523802987168825418, guid: 4121a2ba3bcd42a4a8cf65bc27ede182,
     type: 3}
@@ -191,6 +192,8 @@ MonoBehaviour:
   OrbitSize: 0.65
   bullet_damage: 10
   fireID: 0
+  rotateDegree: 0
+  toDegree: 0
 --- !u!61 &1660776591277975766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.19, y: 0.19, z: 0.17999999, w: 0.19}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.5, y: 0.5}

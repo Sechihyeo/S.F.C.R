@@ -19,6 +19,7 @@ public class GunOrbit : MonoBehaviour
         //orix=transform.localScale.x;
         mySprite=GetComponent<SpriteRenderer>();
         ToColor=myColor;
+        speed = (float)Application.targetFrameRate/8.22f;
     }
     public void Init(bool isColoerd,Vector3 position,Vector3 Scale)
     {
@@ -28,7 +29,7 @@ public class GunOrbit : MonoBehaviour
         mySprite.color=oriColor;
         transform.position=position;
         transform.localScale=Scale;
-        sizeReduction =0.015f;
+        sizeReduction =0.015f/((float)Application.targetFrameRate/144);
     }
     public void Relese()
     {

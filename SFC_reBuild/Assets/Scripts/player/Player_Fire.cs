@@ -60,19 +60,16 @@ public class Player_Fire : PunBehaviour
             Debug.LogError("PoolingManager is Empty!");
         }
     }
-
-    // Update is called once per frame
     public void Update()
     {
-         
-        gunbody.transform.localEulerAngles += (new Vector3(0, 0, 0) - gunbody.transform.localEulerAngles) / 10;
-        gunbody.transform.localScale += (new Vector3(oriscale, oriscale, 1) - gunbody.transform.localScale) / 10;
-        gunbody.transform.localPosition+=(oriGunpos - gunbody.transform.localPosition)/10;
-        if (!pv.isMine) return;
+        gunbody.transform.localEulerAngles += (new Vector3(0, 0, 0) - gunbody.transform.localEulerAngles) / (10*((float)Application.targetFrameRate/144));
+        gunbody.transform.localScale += (new Vector3(oriscale, oriscale, 1) - gunbody.transform.localScale) / (10*((float)Application.targetFrameRate/144));
+        gunbody.transform.localPosition+=(oriGunpos - gunbody.transform.localPosition)/ (10*((float)Application.targetFrameRate/144));
+       if (!pv.isMine) return;
 
         if (isAuto)
         {
-            if (Input.GetMouseButton(0) && Time.time > nextfireQ)
+            if (Input.GetMouseButton(0) && Time.time >= nextfireQ)
             {
                 pv.RPC("FireBullet",PhotonTargets.All,null);
                 //FireBullet();
@@ -80,7 +77,7 @@ public class Player_Fire : PunBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(0) && Time.time > nextfireQ)
+            if (Input.GetMouseButtonDown(0) && Time.time >= nextfireQ)
             {
                 pv.RPC("FireBullet",PhotonTargets.All,null);
                 //FireBullet();
@@ -90,6 +87,12 @@ public class Player_Fire : PunBehaviour
         {
            pv.RPC("co_Reload",PhotonTargets.All,null);
         }
+    }
+    // Update is called once per frame
+    public void FixedUpdate()
+    {
+         
+ 
 
     }
     public virtual void CreateBullet()
@@ -152,7 +155,7 @@ public class Player_Fire : PunBehaviour
             tempreloadTime -= 0.1f;
             GameObject tempOb = PoolingManager.Instance.ObjectResume();
             tempOb.GetComponent<GunOrbit>().Init(false, smokePositon.transform.position - new Vector3(0, 0, 1) + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f)), new Vector3(0.65f, 0.65f));
-            tempOb.GetComponent<GunOrbit>().sizeReduction = 0.0075f;
+            tempOb.GetComponent<GunOrbit>().sizeReduction = 0.0075f/((float)Application.targetFrameRate/144);
             float RandomColor = Random.Range(-20.0f, 80.0f);
             tempOb.GetComponent<SpriteRenderer>().color = new Color((100f + RandomColor) / 255f, (101f + RandomColor) / 255f, (117f + RandomColor) / 255f);
             //tempOb.GetComponent<GunOrbit>().colored = false;
@@ -162,7 +165,7 @@ public class Player_Fire : PunBehaviour
             GameObject tempObshadow = PoolingManager.Instance.ObjectResume();
             tempObshadow.GetComponent<GunOrbit>().Init(false, tempOb.transform.position + new Vector3(0, 0, 0.1f), tempOb.transform.localScale + new Vector3(0.3f, 0.3f, 0));
             tempObshadow.gameObject.GetComponent<SpriteRenderer>().color = new Color(0 / 255f, 0 / 255f, 00 / 255f);
-            tempObshadow.GetComponent<GunOrbit>().sizeReduction = 0.0075f;
+            tempObshadow.GetComponent<GunOrbit>().sizeReduction = 0.0075f/((float)Application.targetFrameRate/144);
             tempObshadow.GetComponent<GunOrbit>().targetFigure = 0.3f;
 
             yield return new WaitForSeconds(0.05f);
