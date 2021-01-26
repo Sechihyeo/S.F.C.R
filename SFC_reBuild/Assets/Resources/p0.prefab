@@ -973,6 +973,7 @@ MonoBehaviour:
   FireSfx: {fileID: 8300000, guid: 9ecbc4fe17dddaa4a912dc5be596b4dd, type: 3}
   ReloadSfx: {fileID: 8300000, guid: bc99a42e1af92cb4080f9f77e372887f, type: 3}
   flamePosition: {fileID: 6744515523534938802}
+  smokePositon: {fileID: 0}
   gunflame: {fileID: 2317673368762833909, guid: ce45823f8960ac745a8e0956cd777483,
     type: 3}
   Max_magazine: 2

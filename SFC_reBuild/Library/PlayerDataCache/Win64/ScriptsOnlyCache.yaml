@@ -944,7 +944,7 @@ ScriptsOnlyBuild:
     className: OnClickDestroy
   - hash:
       serializedVersion: 2
-      Hash: cf36fc5c1bf0db35ce33b8ad1724529f
+      Hash: f8240c4dcedea02174e2563c5107b72d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_Fire
@@ -1094,7 +1094,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: cf36fc5c1bf0db35ce33b8ad1724529f
+      Hash: f8240c4dcedea02174e2563c5107b72d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: key_Fire

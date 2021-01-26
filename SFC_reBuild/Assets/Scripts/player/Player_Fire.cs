@@ -14,6 +14,7 @@ public class Player_Fire : PunBehaviour
     AudioSource Fireaudio, ReloadAudio;
     public AudioClip FireSfx, ReloadSfx;
     public Transform flamePosition;
+    public Transform smokePositon;
     public GameObject gunflame;
     public int Max_magazine = 2, Cur_magazine;
     public float reloadTime = 2;
@@ -44,6 +45,8 @@ public class Player_Fire : PunBehaviour
         oriscale = gunbody.transform.localScale.x;
         Cur_magazine = Max_magazine;
         oriGunpos = gunbody.transform.localPosition;
+        if(smokePositon==null)
+        smokePositon=flamePosition; 
         Debug.Log("Fire ID:"+pv.viewID);
         if (pv.isMine)
         {
@@ -148,7 +151,7 @@ public class Player_Fire : PunBehaviour
         {
             tempreloadTime -= 0.1f;
             GameObject tempOb = PoolingManager.Instance.ObjectResume();
-            tempOb.GetComponent<GunOrbit>().Init(false, flamePosition.transform.position - new Vector3(0, 0, 1) + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f)), new Vector3(0.65f, 0.65f));
+            tempOb.GetComponent<GunOrbit>().Init(false, smokePositon.transform.position - new Vector3(0, 0, 1) + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f)), new Vector3(0.65f, 0.65f));
             tempOb.GetComponent<GunOrbit>().sizeReduction = 0.0075f;
             float RandomColor = Random.Range(-20.0f, 80.0f);
             tempOb.GetComponent<SpriteRenderer>().color = new Color((100f + RandomColor) / 255f, (101f + RandomColor) / 255f, (117f + RandomColor) / 255f);

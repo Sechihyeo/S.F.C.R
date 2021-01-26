@@ -989,12 +989,13 @@ MonoBehaviour:
   FireSfx: {fileID: 8300000, guid: df54fe5746881bb409b31a023d52446c, type: 3}
   ReloadSfx: {fileID: 8300000, guid: 0ce385376a662d9469075bb75527e89a, type: 3}
   flamePosition: {fileID: 703988692870965354}
+  smokePositon: {fileID: 0}
   gunflame: {fileID: 2317673368762833909, guid: ce45823f8960ac745a8e0956cd777483,
     type: 3}
-  Max_magazine: 6
+  Max_magazine: 5
   Cur_magazine: 0
   reloadTime: 3.5
-  naturalColor: {r: 1, g: 0, b: 0.45881796, a: 0}
+  naturalColor: {r: 1, g: 0, b: 0.45881796, a: 1}
   OBsize: 0.65
   isAuto: 1
   nowReload: 0

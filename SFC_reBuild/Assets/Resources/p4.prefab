@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2510924911182219920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9472379550742861}
+  m_Layer: 8
+  m_Name: smokePositon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9472379550742861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510924911182219920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.42, y: 0.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3347983752519223524}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3347983752364801040
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +240,7 @@ Transform:
   m_Children:
   - {fileID: 3347983753967048806}
   - {fileID: 3347983753775901721}
+  - {fileID: 9472379550742861}
   m_Father: {fileID: 3347983753560432314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -360.129}
@@ -788,19 +819,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotDelay: 0.225
-  Bulletspeed: 3
+  Bulletspeed: 25
   BulletDestroy: 3
   bulletInst: {fileID: 4945821651303979414, guid: c10b9665ca7bcce46a5e1850df1cb8b9,
     type: 3}
   FireSfx: {fileID: 8300000, guid: dfbd3475c1f034b499aa4f4902517f90, type: 3}
   ReloadSfx: {fileID: 8300000, guid: a1c9bf6b8e4b8d741ace128c714b7f15, type: 3}
   flamePosition: {fileID: 3347983753775901721}
+  smokePositon: {fileID: 9472379550742861}
   gunflame: {fileID: 2317673368762833909, guid: ce45823f8960ac745a8e0956cd777483,
     type: 3}
   Max_magazine: 8
   Cur_magazine: 0
   reloadTime: 2.5
-  naturalColor: {r: 1, g: 0.49450058, b: 0, a: 0}
+  naturalColor: {r: 1, g: 0.14930198, b: 0, a: 1}
   OBsize: 0.65
   isAuto: 0
   nowReload: 0

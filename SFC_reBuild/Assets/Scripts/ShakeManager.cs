@@ -13,7 +13,7 @@ public class ShakeManager : MonoBehaviour
     float camera_size;
     GameObject player;
     public Transform target;
-
+    float shakeVol;
     void Awake()
     {
 
@@ -26,7 +26,7 @@ public class ShakeManager : MonoBehaviour
     {
         camera_main = Camera.main;
         camera_size = camera_main.orthographicSize;
-      
+        shakeVol = PlayerPrefs.GetFloat("shakeVol");
         Shake(0, 0, 0, 2.0f, 30);
     }
     void Update()
@@ -45,8 +45,9 @@ public class ShakeManager : MonoBehaviour
         if(y!=0)
         shake_y = y;
         if(dire!=0)
-        shake_dire = dire;
-        this.size = size;
+        shake_dire = dire+((-dire)*(1-shakeVol));
+        this.size = size+((1 - size)*(1-shakeVol));
+        
         this.length = length;
     }
 

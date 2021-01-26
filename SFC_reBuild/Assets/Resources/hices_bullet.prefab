@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3421479472800490415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.2775, y: 1.4, z: 1}
   m_Children: []
   m_Father: {fileID: 8241593282657708996}
   m_RootOrder: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 71900e3082b92b24ba812d376cb1520e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01dc6bffbce009f4fb1524c8e3b23c1f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 7158282649104788349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 0.32, z: -1}
+  m_LocalScale: {x: 1.095, y: 0.616, z: -1}
   m_Children:
   - {fileID: 2058368264828201692}
   m_Father: {fileID: 0}
@@ -155,8 +155,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71900e3082b92b24ba812d376cb1520e, type: 3}
-  m_Color: {r: 0.09301472, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 01dc6bffbce009f4fb1524c8e3b23c1f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -207,18 +207,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0016749948, y: 0}
+  m_Offset: {x: -0.54854864, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.19, y: 0.19, z: 0.17999999, w: 0.19}
+    border: {x: 0.06, y: 0.11, z: 0.08, w: 0.13}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.99140805, y: 0.49605536}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.93257654, y: 0.44}
+  m_Size: {x: 2.0263238, y: 0.44}
   m_EdgeRadius: 0
 --- !u!114 &6504885441817864746
 MonoBehaviour:

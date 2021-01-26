@@ -66,9 +66,11 @@ public class MainMenu_Manager : MonoBehaviour
             PlayerPrefs.SetFloat("sfXVol", 1);
         if (!PlayerPrefs.HasKey("masterVol"))
             PlayerPrefs.SetFloat("masterVol", 1);
+        if (!PlayerPrefs.HasKey("shakeVol"))
+            PlayerPrefs.SetInt("shakeVol", 1);
         if (!PlayerPrefs.HasKey("Player_ID"))
             PlayerPrefs.SetInt("Player_ID", 0);
-
+        
         setPlayerID = PlayerPrefs.GetInt("Player_ID");
         buttonSoundSource = gameObject.AddComponent<AudioSource>();
         buttonSoundSource.clip = pressSfx;
