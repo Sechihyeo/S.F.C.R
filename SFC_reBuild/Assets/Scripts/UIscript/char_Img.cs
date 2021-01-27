@@ -7,6 +7,8 @@ public class char_Img : MonoBehaviour
     [SerializeField]
     int myId;
     Image myImg;
+    float poscale=15;
+    float colored=10;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class char_Img : MonoBehaviour
         {
             transform.localPosition =new Vector3(0,0);
         }
+        poscale*=PlayerPrefs.GetFloat("FPS")/144f;
+        colored*=PlayerPrefs.GetFloat("FPS")/144f;
     }
 
     // Update is called once per frame
@@ -32,21 +36,21 @@ public class char_Img : MonoBehaviour
     {
         if(MainMenu_Manager.Instant.setPlayerID<myId)
         {
-            transform.localPosition+=(new Vector3(1500,0)-transform.localPosition)/15;
-            myImg.color +=(new Color(1, 1, 1, 0)-myImg.color)/10;
-            transform.localScale+=(new Vector3(0.75f,0.75f)-transform.localScale)/15;
+            transform.localPosition+=(new Vector3(1500,0)-transform.localPosition)/poscale;
+            myImg.color +=(new Color(1, 1, 1, 0)-myImg.color)/colored;
+            transform.localScale+=(new Vector3(0.75f,0.75f)-transform.localScale)/poscale;
         }
         else if(MainMenu_Manager.Instant.setPlayerID>myId)
         {
-             transform.localPosition+=(new Vector3(-1500,0)-transform.localPosition)/15;
-            myImg.color +=(new Color(1, 1, 1, 0)-myImg.color)/10;
-            transform.localScale+=(new Vector3(0.75f,0.75f)-transform.localScale)/15;
+             transform.localPosition+=(new Vector3(-1500,0)-transform.localPosition)/poscale;
+            myImg.color +=(new Color(1, 1, 1, 0)-myImg.color)/colored;
+            transform.localScale+=(new Vector3(0.75f,0.75f)-transform.localScale)/poscale;
         }
         else
         {
-            transform.localPosition +=(new Vector3(0,0)-transform.localPosition)/15;
-            myImg.color +=(new Color(1, 1, 1, 1)-myImg.color)/20;
-            transform.localScale+=(new Vector3(0.8f,0.8f)-transform.localScale)/15;
+            transform.localPosition +=(new Vector3(0,0)-transform.localPosition)/poscale;
+            myImg.color +=(new Color(1, 1, 1, 1)-myImg.color)/(20*(PlayerPrefs.GetFloat("FPS")/144f));
+            transform.localScale+=(new Vector3(0.8f,0.8f)-transform.localScale)/poscale;
         }
     }
 }

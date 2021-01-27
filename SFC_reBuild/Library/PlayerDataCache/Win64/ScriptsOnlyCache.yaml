@@ -15,7 +15,6 @@ ScriptsOnlyBuild:
     - MainCanvas_state
     - MainMenu_Manager
     - Main_illust
-    - Mainfade_logo
     - PHLobby
     - PhotonAnimatorView
     - PhotonInit
@@ -62,8 +61,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -98,54 +99,62 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 72
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11238}
+      Script: {instanceID: 11240}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11268}
     - Class: 114
-      Script: {instanceID: 11504}
+      Script: {instanceID: 11506}
     - Class: 114
-      Script: {instanceID: 11620}
+      Script: {instanceID: 11622}
     - Class: 114
-      Script: {instanceID: 11642}
+      Script: {instanceID: 11644}
     - Class: 114
-      Script: {instanceID: 11704}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 11824}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 11932}
+      Script: {instanceID: 11934}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12204}
     - Class: 114
-      Script: {instanceID: 12222}
+      Script: {instanceID: 12224}
     - Class: 114
-      Script: {instanceID: 12312}
+      Script: {instanceID: 12314}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12520}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12998}
     - Class: 114
-      Script: {instanceID: 13130}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 14286}
+      Script: {instanceID: 13382}
     - Class: 114
-      Script: {instanceID: 14340}
+      Script: {instanceID: 14288}
     - Class: 114
-      Script: {instanceID: 14522}
+      Script: {instanceID: 14342}
     - Class: 114
-      Script: {instanceID: 14796}
+      Script: {instanceID: 14524}
     - Class: 114
-      Script: {instanceID: 14888}
+      Script: {instanceID: 14798}
     - Class: 114
-      Script: {instanceID: 14906}
+      Script: {instanceID: 14890}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 14908}
     - Class: 114
-      Script: {instanceID: 15114}
+      Script: {instanceID: 15040}
+    - Class: 114
+      Script: {instanceID: 15116}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -192,45 +201,45 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11268}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11580}
     - Class: 114
-      Script: {instanceID: 11618}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11642}
+      Script: {instanceID: 11644}
     - Class: 114
-      Script: {instanceID: 11704}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 11824}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12516}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12520}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13186}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13326}
     - Class: 114
-      Script: {instanceID: 13398}
+      Script: {instanceID: 13400}
     - Class: 114
-      Script: {instanceID: 13468}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13940}
+      Script: {instanceID: 13942}
     - Class: 114
-      Script: {instanceID: 14090}
+      Script: {instanceID: 14092}
     - Class: 114
-      Script: {instanceID: 14104}
+      Script: {instanceID: 14106}
     - Class: 114
-      Script: {instanceID: 14286}
+      Script: {instanceID: 14288}
     - Class: 114
-      Script: {instanceID: 14888}
+      Script: {instanceID: 14890}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 15040}
     - Class: 114
-      Script: {instanceID: 15122}
+      Script: {instanceID: 15124}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -269,19 +278,19 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11268}
     - Class: 114
-      Script: {instanceID: 11642}
+      Script: {instanceID: 11644}
     - Class: 114
-      Script: {instanceID: 11704}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 12012}
+      Script: {instanceID: 12014}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12520}
     - Class: 114
-      Script: {instanceID: 14286}
+      Script: {instanceID: 14288}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 15040}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -324,37 +333,35 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11254}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11268}
     - Class: 114
-      Script: {instanceID: 11428}
+      Script: {instanceID: 11430}
     - Class: 114
-      Script: {instanceID: 11642}
+      Script: {instanceID: 11644}
     - Class: 114
-      Script: {instanceID: 11704}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12520}
     - Class: 114
-      Script: {instanceID: 13214}
+      Script: {instanceID: 13216}
     - Class: 114
-      Script: {instanceID: 13346}
+      Script: {instanceID: 13382}
     - Class: 114
-      Script: {instanceID: 13380}
+      Script: {instanceID: 13826}
     - Class: 114
-      Script: {instanceID: 13824}
+      Script: {instanceID: 14182}
     - Class: 114
-      Script: {instanceID: 14180}
+      Script: {instanceID: 14288}
     - Class: 114
-      Script: {instanceID: 14286}
+      Script: {instanceID: 14908}
     - Class: 114
-      Script: {instanceID: 14906}
+      Script: {instanceID: 15040}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 15100}
     - Class: 114
-      Script: {instanceID: 15098}
-    - Class: 114
-      Script: {instanceID: 15128}
+      Script: {instanceID: 15130}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1130,7 +1137,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 19a0762e86e4957362b6f4b0ac2d2163
+      Hash: dd511c7e546646edf9861d33c7e4660c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenu_Manager
@@ -1166,7 +1173,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 1bc0a8b68188e0ea920a208c6023cfe0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PhotonInit
@@ -1382,7 +1389,7 @@ ScriptsOnlyBuild:
     className: Bullet
   - hash:
       serializedVersion: 2
-      Hash: 6d06227d463812862cee3cec58bdd46f
+      Hash: 2de2cddb7fadba2e153ca2be9e2920de
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PHLobby

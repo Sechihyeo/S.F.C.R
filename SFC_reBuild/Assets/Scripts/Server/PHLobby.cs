@@ -8,10 +8,12 @@ public class PHLobby : Photon.PunBehaviour
     GameObject matchingLogo;
     bool nowFindgame = false;
     bool isJoined = false;
+    float NextTime;
     void Awake()
     {
         PhotonNetwork.ConnectUsingSettings("1.0");
         PlayerPrefs.SetInt("isOner", 0);
+        NextTime = Time.time + 3;
     }
     public override void OnJoinedLobby()
     {
@@ -54,24 +56,42 @@ public class PHLobby : Photon.PunBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        failed_popup.SetActive(false);
     }
     public void matCancel()
     {
         nowFindgame = false;
         isJoined = false;
+        iscalled = false;
         PhotonNetwork.LeaveRoom();
     }
+    bool iscalled = false;
+    bool isFailed = false;
     // Update is called once per frame
+    public void goIntro()
+    {
+        StartCoroutine(MainMenu_Manager.Instant.FadeOut("Intro"));
+    }
+    public GameObject failed_popup;
     void Update()
     {
         matchingLogo.SetActive(nowFindgame);
         if (isJoined == true)
         {
-            if (PhotonNetwork.room.PlayerCount == 2)
+            if (PhotonNetwork.room.PlayerCount == 2 && iscalled == false)
             {
-
                 StartCoroutine(MainMenu_Manager.Instant.FadeOut("Ingame"));
+                PhotonNetwork.room.IsOpen = false;
+                iscalled = true;
+            }
+        }
+        if (Time.time > NextTime)
+        {
+            if (!PhotonNetwork.connected&&!isFailed)
+            {
+                //TODO: failed popup
+                failed_popup.SetActive(true);
+                isFailed = true;
             }
         }
     }

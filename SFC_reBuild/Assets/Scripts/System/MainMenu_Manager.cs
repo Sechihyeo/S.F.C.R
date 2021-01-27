@@ -18,7 +18,6 @@ public class MainMenu_Manager : MonoBehaviour
     [SerializeField]
     Image fadeImg, fadelogo;
     bool isFadeIn = true;
-    float fadeImgAlpha = 0;
     public int menuState = 0;
     [SerializeField]
     GameObject setObj;
@@ -84,7 +83,6 @@ public class MainMenu_Manager : MonoBehaviour
         musicSS.loop = true;
         musicSS.Play();
         fadeImg.color = new Color(1, 1, 1, 1);
-        fadeImgAlpha = fadeImg.color.a;
         fadelogo.color = new Color(1, 1, 1, 0);
         StartCoroutine(FadeIn());
         setObj.SetActive(false);
@@ -96,6 +94,10 @@ public class MainMenu_Manager : MonoBehaviour
             choiced_Text.text = "선택됨!";
         else
             choiced_Text.text = "";
+        
+        Cursor.visible = true;
+        Application.targetFrameRate = (int)PlayerPrefs.GetFloat("FPS");
+
     }
 
     // Update is called once per frame
@@ -173,24 +175,24 @@ public class MainMenu_Manager : MonoBehaviour
         float fade = 1;
         while (fade >= 0)
         {
-            fade -= 0.01f;
+            fade -= 0.02f;
             fadeImg.color = new Color(1, 1, 1, fade);
-            // Debug.Log("페이드 아웃중"+fade);
-            yield return null;
+            //Debug.Log("페이드 인중"+fade);
+            yield return new WaitForFixedUpdate();
         }
+        yield return null;
     }
     public IEnumerator FadeOut(string sceneName)
     {
-        yield return new WaitForSeconds(1f);
+        
         float fade = 0;
-        while (fade <= 1)
+        yield return new WaitForSeconds(1f);
+        while(fade<=1)
         {
-            fade += 0.01f;
+            fade +=0.02f;
             fadeImg.color = new Color(0, 0, 0, fade);
-            fadelogo.color = new Color(1, 1, 1, fade * 0.3f);
-            // Debug.Log("페이드 아웃중"+fade);
-            yield return null;
-
+            fadelogo.color = new Color(1, 1, 1, fade);
+            yield return new WaitForFixedUpdate();
         }
         yield return new WaitForSeconds(1f);
         LoadingSceneManager.LoadScene(sceneName);

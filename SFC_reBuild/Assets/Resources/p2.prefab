@@ -995,7 +995,7 @@ MonoBehaviour:
   Max_magazine: 5
   Cur_magazine: 0
   reloadTime: 3.5
-  naturalColor: {r: 1, g: 0, b: 0.45881796, a: 1}
+  naturalColor: {r: 0.4687748, g: 0, b: 1, a: 1}
   OBsize: 0.65
   isAuto: 1
   nowReload: 0

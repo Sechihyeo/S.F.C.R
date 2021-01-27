@@ -23,11 +23,13 @@ public class Bullet : PunBehaviour
     Vector3 target;
     public float rotateDegree;
     public float toDegree;
+    Vector3 startpos;
     void Start()
     {
         size=transform.localScale.x;
         size_y=transform.localScale.y;
         PV=GetComponent<PhotonView>();
+        startpos=transform.position;
     }
     void BulletOrbit()
     {
@@ -42,6 +44,11 @@ public class Bullet : PunBehaviour
         tempObshadow.GetComponent<GunOrbit>().targetFigure=outline_targetFigure;
 
     }
+    void Update()
+    {
+        if(nextfireQ<Time.time)
+        BulletOrbit();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -49,8 +56,6 @@ public class Bullet : PunBehaviour
         //speed+=(0-speed)/160;
         //size-=size/190;
         transform.localScale=new Vector3(size,size_y);
-        if(nextfireQ<Time.time)
-        BulletOrbit();
         LocalDestroy(false);
     }
     [PunRPC]
@@ -90,11 +95,11 @@ public class Bullet : PunBehaviour
         fireID=pfireID;
         //transform.localRotation = Quaternion.Euler(0,0,PointDirection(new Vector2(transform.localPosition.x,transform.localPosition.y),new Vector2(toVector.x,toVector.y)));
         //개짓거리
-        mPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        oPosition = transform.localPosition;
-        target = mPosition - oPosition;
-        rotateDegree = -1 * Mathf.Atan2(target.x, target.y) * Mathf.Rad2Deg + 90;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotateDegree);
+        // mPosition = toVector;
+        // oPosition = transform.position;
+        // target = mPosition - oPosition;
+        // rotateDegree = -1 * Mathf.Atan2(target.x, target.y) * Mathf.Rad2Deg + 90;
+        transform.rotation = Quaternion.Euler(0f, 0f, PointDirection(startpos,toVector));
         
         return;
     }

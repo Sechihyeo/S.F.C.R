@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon;
 public class PhotonInit : Photon.PunBehaviour
 {
+    float nextTime;
     void Awake()
     {
         //PhotonNetwork.ConnectUsingSettings("1.0");
@@ -47,6 +48,7 @@ public class PhotonInit : Photon.PunBehaviour
     }
     public static void leaveRoom()
     {
+        PhotonNetwork.room.IsOpen=false;
         PhotonNetwork.LeaveRoom();
     }
     void OnGUI()
@@ -56,13 +58,31 @@ public class PhotonInit : Photon.PunBehaviour
 // Start is called before the first frame update
     void Start()
     {
+        dis_popup.SetActive(false);
         StartCoroutine(CreatePlayer());
-
+        nextTime=Time.time+3;
         Debug.Log("<color=cyan>Room Name:"+PhotonNetwork.room.Name+"</color>");
     }
+    public void goMain()
+    {
+        PhotonNetwork.room.IsOpen=false;
+        PhotonNetwork.LeaveRoom();
+        LoadingSceneManager.LoadScene("Main_menu");
+    }
+    public GameObject dis_popup;
 // Update is called once per frame
     void Update()
     {
-
+        if(Time.time>nextTime)
+        {
+            if(PhotonNetwork.room.PlayerCount<2)
+            {
+                if(!dis_popup.GetActive())
+                {
+                    dis_popup.SetActive(true);
+                    //Time.timeScale=0;
+                }
+            }
+        }
     }
 }

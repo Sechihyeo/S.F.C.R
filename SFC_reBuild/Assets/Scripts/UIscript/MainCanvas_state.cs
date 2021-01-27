@@ -19,11 +19,13 @@ public class MainCanvas_state : MonoBehaviour
     void Update()
     {
         if(myCanvasNum<MainMenu_Manager.Instant.menuState)
-        transform.localPosition+=(new Vector3(0,-1500)-transform.localPosition)/20;
+        transform.localPosition+=(new Vector3(0,-1500)-transform.localPosition)/(20f*(PlayerPrefs.GetFloat("FPS"))/144f);
         
         if(myCanvasNum>MainMenu_Manager.Instant.menuState)
-        transform.localPosition+=(new Vector3(0,1500)-transform.localPosition)/20;
+        transform.localPosition+=(new Vector3(0,1500)-transform.localPosition)/(20f*(PlayerPrefs.GetFloat("FPS"))/144f);
         if(myCanvasNum==MainMenu_Manager.Instant.menuState)
-        transform.localPosition+=(new Vector3(0,0)-transform.localPosition)/20;
+        transform.localPosition+=(new Vector3(0,0)-transform.localPosition)/(20f*(PlayerPrefs.GetFloat("FPS"))/144f);
+        
+        
     }
 }

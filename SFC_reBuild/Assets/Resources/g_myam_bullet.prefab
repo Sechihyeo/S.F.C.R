@@ -102,14 +102,14 @@ MonoBehaviour:
   speed: 3
   size: 0
   size_y: 0
-  firerateQ: 0.025
+  firerateQ: 0.015
   BulletOrbitObject: {fileID: 8523802987168825418, guid: 4121a2ba3bcd42a4a8cf65bc27ede182,
     type: 3}
   outline: 0.3
   outline_targetFigure: 0.3
   DestroyTime: 1.5
   OrbitSize: 0.65
-  bullet_damage: 20
+  bullet_damage: 25
   fireID: 0
   rotateDegree: 0
   toDegree: 0
