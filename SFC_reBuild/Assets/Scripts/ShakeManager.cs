@@ -34,13 +34,17 @@ public class ShakeManager : MonoBehaviour
     }
     void LateUpdate()
     {
+    }
+    void FixedUpdate()
+    {
         ShakeUpdate();
         if (target != null)
         {       
                 view_transform=Vector3.Lerp(target.transform.position,Camera.main.ScreenToWorldPoint(Input.mousePosition),0.2f);
-                transform.position += (((view_transform - new Vector3(0, 0, 10))-transform.position)/20);
+                transform.position += (((view_transform - new Vector3(0, 0, 10))-transform.position)/20*0.416f);
                 transform.position = new Vector3(transform.position.x,transform.position.y,target.transform.position.z-20);
         }
+
     }
     public void Shake(float x = 0, float y = 0, float dire = 0, float size = 1.5f, float length = 10)
     {
@@ -52,7 +56,7 @@ public class ShakeManager : MonoBehaviour
             shake_dire = dire + ((-dire) * (1 - shakeVol));
         this.size = size + ((1 - size) * (1 - shakeVol));
 
-        this.length = length;
+        this.length = length*0.416f;
     }
 
     void ShakeUpdate()

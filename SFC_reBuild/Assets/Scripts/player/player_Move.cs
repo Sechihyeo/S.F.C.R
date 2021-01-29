@@ -18,6 +18,8 @@ public class player_Move : PunBehaviour
     public Player_Fire firescript;
     [HideInInspector]
     public focus_Gun gunfocus;
+    Vector3 knockback;
+    public float nockback_length = 0.5f;
     void Awake()
     {
         pv = GetComponent<PhotonView>();
@@ -43,9 +45,14 @@ public class player_Move : PunBehaviour
     void LateUpdate()
     {
     }
-    
+    public void Doknockback(Vector3 po1, Vector3 po2,float length = 1f)
+    {
+        knockback = -Player_Fire.VectorRotation(Player_Fire.PointDirection(po1, po2)) * nockback_length * 0.1f*length;
+    }
     void FixedUpdate()
     {
+        knockback -= knockback / 10;
+        transform.position -= knockback;
         if (pv.isMine)
         {
             float h = Input.GetAxis("Horizontal");
@@ -54,6 +61,10 @@ public class player_Move : PunBehaviour
             if (speedNomal.magnitude > 1)
                 speedNomal = speedNomal.normalized;
             transform.Translate(speedNomal * (speed));
+            if((transform.position.x+speedNomal.x<=-25||transform.position.x+speedNomal.x>=25)||(transform.position.y+speedNomal.y<=-25||transform.position.y+speedNomal.y>=25))
+            {
+                Doknockback(transform.position,transform.position+(Vector3)speedNomal);
+            }
         }
         else
         {

@@ -23,6 +23,11 @@ public class Test_conflictCheck : MonoBehaviour
                    Hp=0;
                    i.GetComponent<Bullet>().LocalDestroy(true);
                 }
+                if(i.tag == "Player"&&i.GetComponent<player_Move>()!=null)
+                {
+                    player_Move temp=i.GetComponent<player_Move>();
+                    temp.Doknockback(transform.position, i.transform.position);
+                }
             }
         }
         box_collider.enabled = true;//다시 자신의 충돌 체크를 켜줌		

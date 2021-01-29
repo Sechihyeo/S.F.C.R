@@ -173,7 +173,7 @@ public class Player_Fire : PunBehaviour
         nowReload = false;
         Cur_magazine = Max_magazine;
     }
-    public float PointDirection(Vector2 pos1, Vector2 pos2)
+    static public float PointDirection(Vector2 pos1, Vector2 pos2)
     {
         Vector2 pos = pos2 - pos1;
         float angle = (float)Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
@@ -182,7 +182,7 @@ public class Player_Fire : PunBehaviour
         return angle;
     }
 
-    public Vector3 VectorRotation(float _angle)
+    static public Vector3 VectorRotation(float _angle)
     {
 
         _angle -= 90;

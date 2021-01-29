@@ -920,6 +920,7 @@ MonoBehaviour:
   pv: {fileID: 0}
   firescript: {fileID: 3578209532151575477}
   gunfocus: {fileID: 0}
+  nockback_length: 0.5
 --- !u!114 &703988692416453327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,7 +1007,7 @@ MonoBehaviour:
   skake: 0.8
   gunShake: 0
   gunShake_angle: 60
-  tanning: 0
+  tanning: 5
   reaction: -2.5
 --- !u!1 &703988692870965355
 GameObject:
