@@ -19,6 +19,7 @@ public class PoolingManager : MonoBehaviour
     public Hp_bar hpbar;
     [SerializeField] public Image Curser;
     public bool isOPner = false;
+    public Text Hp_Text;
     void Awake()
     {
         if (Instance == null)
@@ -109,6 +110,7 @@ public class PoolingManager : MonoBehaviour
                 Player_magazine.color = new Color(1, 1, 1, 0.5f);
                 Curser.fillAmount += (((Player.reloadTime - Player.tempreloadTime) / Player.reloadTime) - Curser.fillAmount) / 10;
             }
+            Hp_Text.text=TruePlayer.GetComponent<player_State>().player_HP+"/"+TruePlayer.GetComponent<player_State>().Max_HP;
         }//Debug.Log("Chiled Count : "+transform.childCount);
     }
 }

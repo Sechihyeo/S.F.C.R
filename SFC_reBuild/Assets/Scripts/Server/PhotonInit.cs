@@ -75,7 +75,7 @@ public class PhotonInit : Photon.PunBehaviour
     {
         if(Time.time>nextTime)
         {
-            if(PhotonNetwork.room.PlayerCount<2)
+            if(PhotonNetwork.room.PlayerCount<2&&!GameManager.Instance.isend)
             {
                 if(!dis_popup.GetActive())
                 {

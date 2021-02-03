@@ -28,6 +28,7 @@ ScriptsOnlyBuild:
     - Volume_slider
     - char_Img
     - focus_Gun
+    - inGameUI_manager
     - key_Fire
     - player_Animation
     - player_Move
@@ -61,10 +62,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -110,35 +109,37 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11240}
+      Script: {instanceID: 11238}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 11706}
+      Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 11826}
+      Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11934}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 12204}
+      Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 12224}
+      Script: {instanceID: 12222}
     - Class: 114
-      Script: {instanceID: 12314}
+      Script: {instanceID: 12312}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 12996}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 13130}
     - Class: 114
-      Script: {instanceID: 13382}
+      Script: {instanceID: 13380}
+    - Class: 114
+      Script: {instanceID: 14122}
     - Class: 114
       Script: {instanceID: 14288}
     - Class: 114
@@ -201,37 +202,37 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11580}
+      Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11620}
+      Script: {instanceID: 11618}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 11706}
+      Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 11826}
+      Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 12282}
+      Script: {instanceID: 12280}
     - Class: 114
-      Script: {instanceID: 12516}
+      Script: {instanceID: 12514}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 13186}
+      Script: {instanceID: 13184}
     - Class: 114
-      Script: {instanceID: 13326}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13398}
     - Class: 114
-      Script: {instanceID: 13470}
+      Script: {instanceID: 13468}
     - Class: 114
-      Script: {instanceID: 13942}
+      Script: {instanceID: 13940}
     - Class: 114
-      Script: {instanceID: 14092}
+      Script: {instanceID: 14090}
     - Class: 114
-      Script: {instanceID: 14106}
+      Script: {instanceID: 14104}
     - Class: 114
       Script: {instanceID: 14288}
     - Class: 114
@@ -278,15 +279,15 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 11706}
+      Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 12014}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
       Script: {instanceID: 14288}
     - Class: 114
@@ -333,23 +334,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11252}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11430}
+      Script: {instanceID: 11428}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 11706}
+      Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 13216}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13382}
+      Script: {instanceID: 13380}
     - Class: 114
-      Script: {instanceID: 13826}
+      Script: {instanceID: 13824}
     - Class: 114
       Script: {instanceID: 14182}
     - Class: 114
@@ -513,7 +514,7 @@ ScriptsOnlyBuild:
     className: ButtonInsideScrollList
   - hash:
       serializedVersion: 2
-      Hash: 2b7f0bbc17e30e78681ccea7ac487753
+      Hash: 3ca1e1e0223e58351511aaf35c5fc432
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: player_Move
@@ -711,7 +712,7 @@ ScriptsOnlyBuild:
     className: PixelPerfectCamera
   - hash:
       serializedVersion: 2
-      Hash: b3398c6b5e476e73c51d4e826b47dd5a
+      Hash: 9b23dab28dcc6aa1be8872978e4833f5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1125,6 +1126,12 @@ ScriptsOnlyBuild:
     className: GunFlame
   - hash:
       serializedVersion: 2
+      Hash: 37ace27d47c529e6c6ecd7575238aa08
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: inGameUI_manager
+  - hash:
+      serializedVersion: 2
       Hash: 9db963832ef7feebd35f44e6ad6f646c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1377,7 +1384,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 3afe99ff9ef6e13cb1afd8ee87563050
+      Hash: ab3101a9d84fc3d4df7e62cbf3e98ae6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PoolingManager

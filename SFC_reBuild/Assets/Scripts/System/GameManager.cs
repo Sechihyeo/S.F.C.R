@@ -9,7 +9,8 @@ public class GameManager : PunBehaviour
     public PhotonView pv;
     int gameTime=180;
     public Text leftTime;
-    bool isend=false;
+    public bool isend=false;
+    public int myScore,otScore;
     void Awake()
     {
         if(Instance==null)
@@ -57,8 +58,9 @@ public class GameManager : PunBehaviour
             leftTime.text=sectime;
         }
         else
-        leftTime.text="Time Over!";
-
+        {
+            leftTime.text="Time Over!";
+        }
         if(Input.GetKey(KeyCode.P))
          {
              PhotonInit.leaveRoom();

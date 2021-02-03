@@ -11,13 +11,40 @@ public class player_State : PunBehaviour
     public PhotonView pv;
     public bool isDead;
     BoxCollider2D box_collider;
+    bool isOut=false,isDameged=false;
     // Start is called before the first frame update
     void Start()
     {
         pv = GetComponent<PhotonView>();
         box_collider = transform.GetComponent<BoxCollider2D>();//컴포넌트를 얻어옴
     }
+    void Update()
+    {
+        if(!pv.isMine)return;
+        if(Vector2.Distance(Vector2.zero,transform.position)>=20)
+        {
+            
+            isOut=true;
+        }
+        else
+        isOut=false;
+        if(isOut&&!isDameged)
+        {   
+            StartCoroutine(Out_damege());
+        }
 
+    }
+    IEnumerator Out_damege()
+    {
+        inGameUI_manager.Instanse.setWar();
+        if(isOut==false)
+        yield return null;
+        isDameged=true;
+        player_HP-=10; 
+        yield return new WaitForSeconds(1);
+        isDameged=false;
+       yield return null; 
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -33,6 +60,10 @@ public class player_State : PunBehaviour
     [PunRPC]
     void playDie()
     {
+        if(pv.isMine)
+        GameManager.Instance.otScore++;
+        else
+        GameManager.Instance.myScore++;
         Camera.main.GetComponent<ShakeManager>().Shake(0,0,15,1,10);
         for(int i=0;i<5;i++)
         {
@@ -57,6 +88,7 @@ public class player_State : PunBehaviour
         GetComponent<player_Move>().enabled = false;
         GetComponent<Player_Fire>().enabled = false;
         box_collider.enabled = false;
+        transform.position = new Vector3(0,0);
         transform.localScale = new Vector3(0, 0);
         for (int i = 5; i >= 0; i--)
         {
@@ -90,6 +122,7 @@ public class player_State : PunBehaviour
                         //hit[i].GetComponent<Bullet>().PV.RPC("LocalDestroy", PhotonTargets.All, true);
                         hit[i].GetComponent<Bullet>().LocalDestroy(true);
                         player_HP -= hit[i].GetComponent<Bullet>().bullet_damage;
+                        inGameUI_manager.Instanse.setHit();
                     }
                     else
                     {
