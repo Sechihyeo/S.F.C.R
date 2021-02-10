@@ -33,6 +33,7 @@ ScriptsOnlyBuild:
     - player_Animation
     - player_Move
     - player_State
+    - result_obj
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -62,8 +63,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -156,6 +159,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15040}
     - Class: 114
       Script: {instanceID: 15116}
+    - Class: 114
+      Script: {instanceID: 16962}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -712,7 +717,7 @@ ScriptsOnlyBuild:
     className: PixelPerfectCamera
   - hash:
       serializedVersion: 2
-      Hash: 9b23dab28dcc6aa1be8872978e4833f5
+      Hash: 0db882ff0483ea3d047c83d776c05169
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1412,6 +1417,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 459c7feee6dd5a67942c4a08042dfb42
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: result_obj
   platform: 19
   scenePathNames:
   - Assets/Scene/Intro.unity

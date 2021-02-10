@@ -11,6 +11,7 @@ public class GameManager : PunBehaviour
     public Text leftTime;
     public bool isend=false;
     public int myScore,otScore;
+    public GameObject result;
     void Awake()
     {
         if(Instance==null)
@@ -60,6 +61,10 @@ public class GameManager : PunBehaviour
         else
         {
             leftTime.text="Time Over!";
+            if(result.GetActive()==false)
+            {
+                result.SetActive(true);
+            }
         }
         if(Input.GetKey(KeyCode.P))
          {
