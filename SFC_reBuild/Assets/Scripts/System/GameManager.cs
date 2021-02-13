@@ -12,6 +12,12 @@ public class GameManager : PunBehaviour
     public bool isend=false;
     public int myScore,otScore;
     public GameObject result;
+    AudioSource musicSS;
+    AudioSource sfx;
+    [SerializeField]
+    AudioClip pressSfxmusic;
+      [SerializeField]
+    AudioClip pressSfx;
     void Awake()
     {
         if(Instance==null)
@@ -23,8 +29,15 @@ public class GameManager : PunBehaviour
         pv.ObservedComponents[0] = this;
         if(PoolingManager.Instance.isOPner)
          StartCoroutine(timer());
+        musicSS = gameObject.AddComponent<AudioSource>();
+        sfx = gameObject.AddComponent<AudioSource>();
+        sfx.clip = pressSfx;
+        sfx.volume = PlayerPrefs.GetFloat("sfXVol") * PlayerPrefs.GetFloat("masterVol");
 
-
+        musicSS.clip = pressSfxmusic;
+        musicSS.volume = PlayerPrefs.GetFloat("musicVol") * PlayerPrefs.GetFloat("masterVol");
+        musicSS.loop = true;
+        musicSS.Play();
     }
     public void startCu()
     {
@@ -63,7 +76,9 @@ public class GameManager : PunBehaviour
             leftTime.text="Time Over!";
             if(result.GetActive()==false)
             {
+                sfx.Play();
                 result.SetActive(true);
+
             }
         }
         if(Input.GetKey(KeyCode.P))

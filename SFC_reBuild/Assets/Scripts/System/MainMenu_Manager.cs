@@ -42,7 +42,7 @@ public class MainMenu_Manager : MonoBehaviour
     "\"치명적인 귀여움(리볼버, 물리)\"",
     "\"자꾸 죽은 사람 취급당한다는군요\"",
     "\"여긴 물 밖인데.\"",
-    "\"2월 15일 입대합니다\n게임이 좋았ㄷ다면 애니에 특별 출현좀 헤헤\""};
+    "\"2월 15일 입대합니다. 불쌍한 것.\n(게임이 좋았다면 애니에 특별 출현좀)\""};
     [SerializeField]
     Text charNameText;
     [SerializeField]
@@ -186,7 +186,7 @@ public class MainMenu_Manager : MonoBehaviour
     {
         
         float fade = 0;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         while(fade<=1)
         {
             fade +=0.02f;

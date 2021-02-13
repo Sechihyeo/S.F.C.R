@@ -31,12 +31,6 @@ public class ShakeManager : MonoBehaviour
     }
     void Update()
     {
-    }
-    void LateUpdate()
-    {
-    }
-    void FixedUpdate()
-    {
         ShakeUpdate();
         if (target != null)
         {       
@@ -44,6 +38,12 @@ public class ShakeManager : MonoBehaviour
                 transform.position += (((view_transform - new Vector3(0, 0, 10))-transform.position)/20*0.416f);
                 transform.position = new Vector3(transform.position.x,transform.position.y,target.transform.position.z-20);
         }
+    }
+    void LateUpdate()
+    {
+    }
+    void FixedUpdate()
+    {
 
     }
     public void Shake(float x = 0, float y = 0, float dire = 0, float size = 1.5f, float length = 10)
