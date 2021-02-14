@@ -921,6 +921,7 @@ MonoBehaviour:
   firescript: {fileID: 3578209532151575477}
   gunfocus: {fileID: 0}
   nockback_length: 0.5
+  isRoll: 0
 --- !u!114 &703988692416453327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,6 +952,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: is_Run
+  - Type: 4
+    SynchronizeType: 2
+    Name: is_Roll
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0

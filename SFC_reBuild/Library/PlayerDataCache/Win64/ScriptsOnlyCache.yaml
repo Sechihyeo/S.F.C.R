@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp-Editor.dll:
+    - PhotonAnimatorViewEditor
+    - PhotonViewInspector
     - PunSceneSettings
     Assembly-CSharp.dll:
     - Anima2D.Bone2D
@@ -525,7 +527,7 @@ ScriptsOnlyBuild:
     className: ButtonInsideScrollList
   - hash:
       serializedVersion: 2
-      Hash: 3ca1e1e0223e58351511aaf35c5fc432
+      Hash: e2478ccf0babac61fc230f3c49ffc8a5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: player_Move

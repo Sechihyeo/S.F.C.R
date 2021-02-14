@@ -20,6 +20,7 @@ public class player_Move : PunBehaviour
     public focus_Gun gunfocus;
     Vector3 knockback;
     public float nockback_length = 0.5f;
+    float nextfireQ, firerateQ = 0.5f;
     void Awake()
     {
         pv = GetComponent<PhotonView>();
@@ -45,6 +46,24 @@ public class player_Move : PunBehaviour
     void LateUpdate()
     {
     }
+    public bool isRoll = false;
+    [PunRPC]
+    public void Roll()
+    {
+        if (Time.time > nextfireQ)
+        {
+            nextfireQ = Time.time + firerateQ;
+            if(isRoll==false)
+            StartCoroutine(rollCo());
+        }
+    }
+    IEnumerator rollCo()
+    {
+        isRoll=true;
+        yield return new WaitForSeconds(0.2f);
+        isRoll=false;
+        yield return null;
+    }
     public void Doknockback(Vector3 po1, Vector3 po2,float length = 1f)
     {
         knockback = -Player_Fire.VectorRotation(Player_Fire.PointDirection(po1, po2)) * nockback_length * 0.1f*length;
@@ -60,10 +79,17 @@ public class player_Move : PunBehaviour
             speedNomal = (new Vector2(h, v));
             if (speedNomal.magnitude > 1)
                 speedNomal = speedNomal.normalized;
+            if(isRoll==false)
             transform.Translate(speedNomal * (speed));
+            else
+            transform.Translate(speedNomal * (speed)*3);
             if((transform.position.x+speedNomal.x<=-25||transform.position.x+speedNomal.x>=25)||(transform.position.y+speedNomal.y<=-25||transform.position.y+speedNomal.y>=25))
             {
                 Doknockback(transform.position,transform.position+(Vector3)speedNomal);
+            }
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Roll();
             }
         }
         else
@@ -71,7 +97,10 @@ public class player_Move : PunBehaviour
 
             if (Getmove.magnitude > 1)
                 Getmove = Getmove.normalized;
+            if(isRoll==false)
             transform.Translate(Getmove * (speed));
+            else
+            transform.Translate(Getmove * (speed)*3);
             if(Vector3.SqrMagnitude(transform.position-currPos)>=0.05f)
             {
                 transform.position += (currPos-transform.position)/5;

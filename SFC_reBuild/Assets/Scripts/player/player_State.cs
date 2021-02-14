@@ -12,11 +12,13 @@ public class player_State : PunBehaviour
     public bool isDead;
     BoxCollider2D box_collider;
     bool isOut=false,isDameged=false;
+    
     // Start is called before the first frame update
     void Start()
     {
         pv = GetComponent<PhotonView>();
         box_collider = transform.GetComponent<BoxCollider2D>();//컴포넌트를 얻어옴
+        
     }
     void Update()
     {
