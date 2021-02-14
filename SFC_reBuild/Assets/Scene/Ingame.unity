@@ -3555,6 +3555,12 @@ PrefabInstance:
       propertyPath: dis_popup
       value: 
       objectReference: {fileID: 352276157}
+    - target: {fileID: 5898533804851967131, guid: df92e615374e27a41918e5853a0c8697,
+        type: 3}
+      propertyPath: myself
+      value: 
+      objectReference: {fileID: 3017545758228963677, guid: 3956b9e1ee9e6d54a81d209a8a5bb0cb,
+        type: 3}
     - target: {fileID: 5898533804851967133, guid: df92e615374e27a41918e5853a0c8697,
         type: 3}
       propertyPath: m_Name

@@ -37,13 +37,15 @@ public class PhotonInit : Photon.PunBehaviour
     //     CreatePlayer();
 
     // }
+    public GameObject myself;
     public IEnumerator CreatePlayer()
     {
 
         yield return new WaitForSeconds(2f);
         
         GameManager.Instance.startCu();
-        PhotonNetwork.Instantiate("p"+PlayerPrefs.GetInt("Player_ID"),new Vector3((PoolingManager.Instance.isOPner)?-3:3,0,0),Quaternion.identity,0);
+        GameObject temp = PhotonNetwork.Instantiate("p"+PlayerPrefs.GetInt("Player_ID"),new Vector3((PoolingManager.Instance.isOPner)?-3:3,0,0),Quaternion.identity,0);
+        Instantiate(myself,temp.transform.position+new Vector3(0,2.5f),Quaternion.identity).transform.parent=temp.transform;
         yield return null;
     }
     public static void leaveRoom()

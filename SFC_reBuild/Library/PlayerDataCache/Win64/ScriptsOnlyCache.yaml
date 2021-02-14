@@ -1,8 +1,6 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp-Editor.dll:
-    - PhotonAnimatorViewEditor
-    - PhotonViewInspector
     - PunSceneSettings
     Assembly-CSharp.dll:
     - Anima2D.Bone2D
@@ -1199,7 +1197,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 1bc0a8b68188e0ea920a208c6023cfe0
+      Hash: f446484031b006315d302534d8250443
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PhotonInit
