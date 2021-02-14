@@ -819,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086085eaebdad3443b0b80b4a93ba504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotDelay: 0.225
+  ShotDelay: 0.32
   Bulletspeed: 25
   BulletDestroy: 3
   bulletInst: {fileID: 4945821651303979414, guid: c10b9665ca7bcce46a5e1850df1cb8b9,

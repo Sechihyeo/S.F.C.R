@@ -53,6 +53,7 @@ public class MainMenu_Manager : MonoBehaviour
     Text choiced_Text;
     [SerializeField]
     Text fps_text;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -97,7 +98,7 @@ public class MainMenu_Manager : MonoBehaviour
         
         Cursor.visible = true;
         Application.targetFrameRate = (int)PlayerPrefs.GetFloat("FPS");
-
+        
     }
 
     // Update is called once per frame
@@ -186,7 +187,7 @@ public class MainMenu_Manager : MonoBehaviour
     {
         
         float fade = 0;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         while(fade<=1)
         {
             fade +=0.02f;

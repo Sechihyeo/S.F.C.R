@@ -63,7 +63,10 @@ public class player_State : PunBehaviour
         if(pv.isMine)
         GameManager.Instance.otScore++;
         else
-        GameManager.Instance.myScore++;
+        {
+            GameManager.Instance.myScore++;
+            GameManager.Instance.onEliminate();
+        }
         Camera.main.GetComponent<ShakeManager>().Shake(0,0,15,1,10);
         for(int i=0;i<5;i++)
         {

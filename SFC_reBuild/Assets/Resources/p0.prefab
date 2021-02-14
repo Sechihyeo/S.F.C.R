@@ -915,11 +915,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8d5b8189b82d1478c2afd06c4e574d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.12
   plusVec: {x: 0, y: 0, z: 0}
   pv: {fileID: 0}
   firescript: {fileID: 7129080275382375740}
   gunfocus: {fileID: 0}
+  nockback_length: 0.5
 --- !u!114 &6744515523213561879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,8 +967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotDelay: 0.15
-  Bulletspeed: 10
-  BulletDestroy: 1.2
+  Bulletspeed: 15
+  BulletDestroy: 3
   bulletInst: {fileID: 4945821651303979414, guid: c10b9665ca7bcce46a5e1850df1cb8b9,
     type: 3}
   FireSfx: {fileID: 8300000, guid: 9ecbc4fe17dddaa4a912dc5be596b4dd, type: 3}
@@ -1004,8 +1005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983a28b8003a7754faee14710a32d662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_HP: 100
-  Max_HP: 100
+  player_HP: 125
+  Max_HP: 125
   pv: {fileID: 0}
   isDead: 0
 --- !u!1 &6744515523534938803

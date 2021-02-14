@@ -11,7 +11,7 @@ public class PHLobby : Photon.PunBehaviour
     float NextTime;
     void Awake()
     {
-        PhotonNetwork.ConnectUsingSettings("1.0");
+        PhotonNetwork.ConnectUsingSettings("1.1");
         PlayerPrefs.SetInt("isOner", 0);
         NextTime = Time.time + 3;
     }

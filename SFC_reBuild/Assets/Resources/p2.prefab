@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotDelay: 0.25
-  Bulletspeed: 20
+  Bulletspeed: 30
   BulletDestroy: 1
   bulletInst: {fileID: 2537432882461127350, guid: bce40d631ae96134e8b1f0443a96ddc5,
     type: 3}
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   skake: 0.8
   gunShake: 0
   gunShake_angle: 60
-  tanning: 5
+  tanning: 1
   reaction: -2.5
 --- !u!1 &703988692870965355
 GameObject:

@@ -338,6 +338,7 @@ MonoBehaviour:
   pv: {fileID: 0}
   firescript: {fileID: 5033909783025014067}
   gunfocus: {fileID: 0}
+  nockback_length: 0.5
 --- !u!114 &5634108661925128582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotDelay: 0.1
-  Bulletspeed: 15
+  Bulletspeed: 25
   BulletDestroy: 3
   bulletInst: {fileID: 4945821651303979414, guid: c10b9665ca7bcce46a5e1850df1cb8b9,
     type: 3}

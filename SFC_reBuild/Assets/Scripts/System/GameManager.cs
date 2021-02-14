@@ -18,6 +18,8 @@ public class GameManager : PunBehaviour
     AudioClip pressSfxmusic;
       [SerializeField]
     AudioClip pressSfx;
+    [SerializeField]
+    Image eliminate;
     void Awake()
     {
         if(Instance==null)
@@ -38,6 +40,8 @@ public class GameManager : PunBehaviour
         musicSS.volume = PlayerPrefs.GetFloat("musicVol") * PlayerPrefs.GetFloat("masterVol");
         musicSS.loop = true;
         musicSS.Play();
+        eliminate.color = new Color32(1,1,1,0);
+        
     }
     public void startCu()
     {
@@ -86,7 +90,13 @@ public class GameManager : PunBehaviour
              PhotonInit.leaveRoom();
              LoadingSceneManager.LoadScene("Main_menu");
          }
-        
+        eliminate.color += (new Color(1,1,1,0)-eliminate.color)/20;
+        eliminate.transform.localScale += (new Vector3(1,1)-eliminate.transform.localScale)/20;
+    }
+    public void onEliminate()
+    {
+        eliminate.color = new Color(1,1,1,1);
+        eliminate.transform.localScale = new Vector3(2,2);
     }
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
