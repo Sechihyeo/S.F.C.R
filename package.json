@@ -1,0 +1,21 @@
+{
+  "name": "S.F.C.R",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Sechihyeo/S.F.C.R.git",
+  "author": "noeulnight <noeulnight.mail@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.17",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1"
+  }
+}
